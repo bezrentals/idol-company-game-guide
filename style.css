@@ -1554,3 +1554,73 @@ select.filter-select,
 @media (max-width: 500px) {
   .hide-mobile { display: none !important; }
 }
+
+/* ============================================
+   FULL MOBILE AUDIT FIXES — May 17, 2026
+   ============================================ */
+
+/* FIX 1 (CRITICAL): Blueprints table bleeding at 719px
+   — force table-wrap overflow-x:auto on ALL standalone table-wraps */
+.page-section > .table-wrap,
+.page-section > div > .table-wrap,
+.page-section .accordion-content .table-wrap {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+/* FIX 2 (CRITICAL): Resources table bleeding at 770px */
+#resources .table-wrap,
+#blueprints .table-wrap,
+#abroad .table-wrap,
+#pvp .table-wrap,
+#svs .table-wrap,
+#dailyquests .table-wrap,
+#events .table-wrap {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* FIX 3 (CRITICAL): PvP large stat source table bleeding at 433px
+   — shorten "What it does" and "Notes" columns on mobile */
+@media (max-width: 500px) {
+  #pvp .data-table th:nth-child(3),
+  #pvp .data-table td:nth-child(3) {
+    display: none;
+  }
+  #resources .data-table th,
+  #resources .data-table td,
+  #blueprints .data-table th,
+  #blueprints .data-table td {
+    font-size: 11px;
+    padding: var(--space-1) var(--space-2);
+    white-space: normal;
+  }
+}
+
+/* FIX 4 (MEDIUM): Abroad result table bleeding at 627px
+   — hide "Qty × Cost" column, keep Name / Desc / Total / Status / After */
+@media (max-width: 500px) {
+  #abroadResult .data-table th:nth-child(4),
+  #abroadResult .data-table td:nth-child(4),
+  #abroadResult .data-table th:nth-child(6),
+  #abroadResult .data-table td:nth-child(6) {
+    display: none;
+  }
+}
+
+/* FIX 5 (MEDIUM): Calculate Gems button — raise to 44px */
+#calcGemsBtn {
+  min-height: 44px;
+  width: 100%;
+}
+
+/* FIX 6 (MEDIUM): Abroad Optimize button — raise to 44px */
+#calcAbroadBtn {
+  min-height: 44px;
+}
+
+/* FIX 7 (LOW): Girls battle stat label — raise from 10px to 11px min */
+.bstat-label {
+  font-size: 11px;
+}
