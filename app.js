@@ -1076,6 +1076,7 @@ const bpData = [
       card.addEventListener('click', () => removeFromManual(idx));
     });
     renderTotalsBar(computeLineupTotals(manualLineup.filter(Boolean)), 'lbManualStats');
+  if (window.runLineupGrade) window.runLineupGrade(manualLineup, 'lbGradePanel');
   }
 
   function addToManual(name) {
@@ -1146,4 +1147,171 @@ const bpData = [
   // Init
   renderPool();
   renderManualSlots();
+})();
+
+// ============================================================
+// LINEUP GRADER
+// ============================================================
+
+(function() {
+
+  // Benchmarks based on known strong lineups from source docs
+  // These are community-observed totals for a solid 5-girl SSR lineup
+  const BENCHMARKS = {
+    skillDmg:     { low: 20,  good: 48,  strong: 80,  label: 'Skill DMG' },
+    normalDmg:    { low: 24,  good: 60,  strong: 120, label: 'Normal DMG' },
+    reduceSkill:  { low: 0,   good: 12,  strong: 24,  label: 'Reduce Skill' },
+    reduceNormal: { low: 0,   good: 12,  strong: 24,  label: 'Reduce Normal' },
+    fanCap:       { low: 0,   good: 12,  strong: 24,  label: 'Fan Cap' },
+    rallyCap:     { low: 0,   good: 10,  strong: 20,  label: 'Rally Cap' },
+  };
+
+  const REDUNDANCY_THRESHOLD = 3; // 3+ girls with same stat = overkill
+
+  function gradeLineup(girls) {
+    const tips = [];
+    const warnings = [];
+    const strengths = [];
+
+    // --- Stat totals ---
+    const totals = { skillDmg:0, normalDmg:0, reduceSkill:0, reduceNormal:0, fanCap:0, rallyCap:0 };
+    girls.forEach(g => Object.keys(totals).forEach(k => totals[k] += g[k] || 0));
+
+    // --- Redundancy check ---
+    Object.entries(totals).forEach(([stat, val]) => {
+      const bench = BENCHMARKS[stat];
+      if (!bench || val === 0) return;
+
+      // Count how many girls contribute to this stat
+      const contributors = girls.filter(g => (g[stat] || 0) > 0);
+      if (contributors.length >= REDUNDANCY_THRESHOLD) {
+        const names = contributors.map(g => g.name).join(', ');
+        warnings.push({
+          icon: '⚠️',
+          title: `${bench.label} stacked on ${contributors.length} girls`,
+          detail: `${names} all boost ${bench.label}. You could swap one for a girl that covers a gap instead.`,
+          stat
+        });
+      }
+    });
+
+    // --- Benchmark comparison ---
+    Object.entries(BENCHMARKS).forEach(([stat, bench]) => {
+      const val = totals[stat];
+
+      if (val === 0 && bench.good > 0) {
+        // Total gap — find best replacement
+        const best = girlsData
+          .filter(g => !girls.find(l => l.name === g.name) && (g[stat] || 0) > 0)
+          .sort((a, b) => (b[stat] || 0) - (a[stat] || 0))
+          .slice(0, 2);
+        tips.push({
+          icon: '🔴',
+          title: `No ${bench.label} in lineup`,
+          detail: `Your team has zero ${bench.label}. This leaves you exposed.${best.length ? ' Consider: ' + best.map(g => `${g.name} (+${g[stat]}%)`).join(' or ') + '.' : ''}`,
+          severity: 'critical',
+          stat
+        });
+      } else if (val < bench.good && bench.good > 0) {
+        // Below benchmark — find upgrade
+        const best = girlsData
+          .filter(g => !girls.find(l => l.name === g.name) && (g[stat] || 0) > val / girls.length)
+          .sort((a, b) => (b[stat] || 0) - (a[stat] || 0))
+          .slice(0, 2);
+        tips.push({
+          icon: '🟡',
+          title: `${bench.label} is low (${val > 0 ? '+' + val + '%' : '0'})`,
+          detail: `Strong lineups typically hit +${bench.good}%. You're at ${val > 0 ? '+' + val + '%' : 'zero'}.${best.length ? ' Upgrade option: ' + best.map(g => `${g.name} (+${g[stat]}%)`).join(' or ') + '.' : ''}`,
+          severity: 'warning',
+          stat
+        });
+      } else if (val >= bench.strong) {
+        strengths.push(`${bench.label} +${val}% (excellent)`);
+      } else if (val >= bench.good) {
+        strengths.push(`${bench.label} +${val}% (solid)`);
+      }
+    });
+
+    // --- Position balance check ---
+    const positions = { Center: 0, Vocalist: 0, Dancer: 0 };
+    girls.forEach(g => { if (positions[g.pos] !== undefined) positions[g.pos]++; });
+    const dominated = Object.entries(positions).filter(([, c]) => c >= 4);
+    const missing = Object.entries(positions).filter(([, c]) => c === 0);
+    if (dominated.length) {
+      dominated.forEach(([pos]) => warnings.push({
+        icon: '⚠️',
+        title: `4+ ${pos}s in lineup`,
+        detail: `Heavy ${pos} lineups miss genre bonus diversity. Consider mixing positions for broader buffs.`,
+        stat: 'position'
+      }));
+    }
+    if (missing.length) {
+      missing.forEach(([pos]) => tips.push({
+        icon: '🟡',
+        title: `No ${pos} in lineup`,
+        detail: `Having at least one of each position type is generally recommended for balanced coverage.`,
+        severity: 'warning',
+        stat: 'position'
+      }));
+    }
+
+    // --- Single-genre bonus check ---
+    const genres = [...new Set(girls.map(g => g.genre))];
+    if (genres.length === 1) {
+      strengths.push(`Full ${genres[0]} lineup — maximum genre bonus active`);
+    } else if (genres.length >= 4) {
+      tips.push({
+        icon: '💡',
+        title: 'Mixed genres — no genre bonus',
+        detail: `Your lineup spans ${genres.length} genres. Running 5 girls of the same genre activates a full genre bonus. Consider consolidating if your girls allow it.`,
+        severity: 'info',
+        stat: 'genre'
+      });
+    }
+
+    // Sort tips: critical first, then warnings, then info
+    const severityOrder = { critical: 0, warning: 1, info: 2 };
+    tips.sort((a, b) => (severityOrder[a.severity] || 2) - (severityOrder[b.severity] || 2));
+
+    return { tips, warnings, strengths, totals };
+  }
+
+  // Wire grader into the lineup builder
+  // We'll expose this so renderManualSlots can call it
+  window.runLineupGrade = function(girls, containerId) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    const filled = girls.filter(Boolean);
+    if (filled.length < 2) {
+      el.innerHTML = '<p style="font-size:var(--text-sm);color:var(--color-text-faint);margin-top:var(--space-3);">Add at least 2 girls to get lineup tips.</p>';
+      return;
+    }
+
+    const { tips, warnings, strengths, totals } = gradeLineup(filled);
+    const allFeedback = [...warnings, ...tips];
+
+    el.innerHTML = `
+      <div class="grade-panel">
+        <div class="grade-panel-title">Lineup Analysis</div>
+        ${strengths.length ? `
+          <div class="grade-section">
+            <div class="grade-section-label grade-green">✓ Strengths</div>
+            ${strengths.map(s => `<div class="grade-item grade-item--good">✓ ${s}</div>`).join('')}
+          </div>
+        ` : ''}
+        ${allFeedback.length ? `
+          <div class="grade-section">
+            <div class="grade-section-label">Tips &amp; Warnings</div>
+            ${allFeedback.map(t => `
+              <div class="grade-item grade-item--${t.severity || 'warning'}">
+                <div class="grade-item-title">${t.icon} ${t.title}</div>
+                <div class="grade-item-detail">${t.detail}</div>
+              </div>
+            `).join('')}
+          </div>
+        ` : '<div class="grade-item grade-item--good">✓ No major issues found with this lineup.</div>'}
+      </div>
+    `;
+  };
+
 })();
