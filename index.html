@@ -93,12 +93,10 @@
       <section id="girls" class="page-section tab-section active" role="tabpanel" aria-labelledby="tab-girls">
         <div class="section-header">
           <h2 class="section-title"><span>Girls</span> <span style="color:var(--color-text)">— Battle Stats</span></h2>
-          <p class="section-desc">Stats from the Lineup Calculator (FILTER ONLY — Do NOT sort). Includes Skill DMG, Normal DMG, Reduce Skill/Normal, Fan Cap, Rally Cap, DMG Attack, and DMG Defense. Data converted: Damage to Player = Skill DMG + Normal DMG combined.</p>
+          <p class="section-desc">87 girls — battle stats at Level 140 + triple gold skills. Filter by genre, position, or rarity. "Damage to Player" skills are split equally into Skill DMG and Normal DMG.</p>
         </div>
 
-        <div class="callout warning">
-          <strong>FILTER ONLY — Do NOT sort.</strong> Damage to player has been converted to equal Skill Damage and Normal Damage. VIP bonuses are NOT included here — see the Scorecard section below.
-        </div>
+
         <div class="stat-legend">
           <span class="stat-legend-title">Reading the stats:</span>
           <span class="legend-item"><span class="legend-dot" style="background:var(--color-primary)"></span><strong>Skill DMG</strong> — boosts active skill hits (higher = harder hits)</span>
@@ -122,6 +120,13 @@
           <select class="filter-select" id="rarityFilter" aria-label="Filter by rarity">
             <option value="">All Rarities</option>
             <option>UR</option><option>SSR</option>
+          </select>
+          <select class="filter-select" id="sortFilter" aria-label="Sort girls">
+            <option value="total_desc">Highest Total First</option>
+            <option value="total_asc">Lowest Total First</option>
+            <option value="sing_desc">Highest Sing First</option>
+            <option value="dance_desc">Highest Dance First</option>
+            <option value="name_asc">A–Z by Name</option>
           </select>
         </div>
 

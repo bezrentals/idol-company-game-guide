@@ -751,18 +751,35 @@ function filterGirls() {
   const g = document.getElementById('genreFilter')?.value || '';
   const p = document.getElementById('positionFilter')?.value || '';
   const r = document.getElementById('rarityFilter')?.value || '';
-  renderGirls(girlsData.filter(d =>
+  const sort = document.getElementById('sortFilter')?.value || 'total_desc';
+
+  let filtered = girlsData.filter(d =>
     (!s || d.name.toLowerCase().includes(s)) &&
     (!g || d.genre === g) &&
     (!p || d.pos === p) &&
     (!r || d.type === r)
-  ));
+  );
+
+  // Sort
+  filtered = [...filtered].sort((a, b) => {
+    switch(sort) {
+      case 'total_desc': return b.total - a.total;
+      case 'total_asc':  return a.total - b.total;
+      case 'sing_desc':  return b.sing - a.sing;
+      case 'dance_desc': return b.dance - a.dance;
+      case 'name_asc':   return a.name.localeCompare(b.name);
+      default:           return b.total - a.total;
+    }
+  });
+
+  renderGirls(filtered);
 }
 document.getElementById('girlSearch')?.addEventListener('input', filterGirls);
 document.getElementById('genreFilter')?.addEventListener('change', filterGirls);
 document.getElementById('positionFilter')?.addEventListener('change', filterGirls);
 document.getElementById('rarityFilter')?.addEventListener('change', filterGirls);
-renderGirls(girlsData);
+document.getElementById('sortFilter')?.addEventListener('change', filterGirls);
+filterGirls();
 
 // ============================================================
 // ABROAD SHOP OPTIMIZER
