@@ -1624,3 +1624,27 @@ select.filter-select,
 .bstat-label {
   font-size: 11px;
 }
+
+/* NUCLEAR TABLE FIX — catch every table-wrap regardless of nesting depth */
+.table-wrap {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure tables inside table-wrap don't force parent wider */
+.table-wrap table {
+  min-width: 0;
+}
+
+/* PvP stat source table — very wide, force scroll on mobile */
+@media (max-width: 600px) {
+  #pvp .table-wrap {
+    overflow-x: auto !important;
+  }
+  /* Resources villa + car table */
+  #resources .table-wrap {
+    overflow-x: auto !important;
+  }
+}
