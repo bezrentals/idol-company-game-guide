@@ -334,20 +334,20 @@
         </div>
 
         <div class="calc-section" style="margin-bottom: var(--space-6);">
-          <div class="calc-row" style="flex-wrap:wrap; gap: var(--space-4);">
-            <div style="display:flex;align-items:center;gap:var(--space-3);">
-              <label class="calc-label" for="abroadCoins" style="white-space:nowrap;">Available Abroad Coins</label>
-              <input type="number" class="calc-input" id="abroadCoins" value="193300" style="width:180px;" />
+          <div class="abroad-controls">
+            <div class="abroad-field">
+              <label class="calc-label" for="abroadCoins">Available Abroad Coins</label>
+              <input type="number" class="calc-input" id="abroadCoins" value="193300" />
             </div>
-            <div style="display:flex;align-items:center;gap:var(--space-3);">
-              <label class="calc-label" for="abroadGoal" style="white-space:nowrap;">Spend Goal</label>
+            <div class="abroad-field">
+              <label class="calc-label" for="abroadGoal">Spend Goal</label>
               <select class="filter-select" id="abroadGoal">
                 <option value="priority">Best Priority First — recommended: spends on highest-value items (SSR photos, promo cards, rare collectibles)</option>
                 <option value="efficiency">Most Qty per Coin — maximizes raw resource volume (gems, glass, car parts)</option>
                 <option value="cheapest">Cheapest First — clears most line items; good when you're close to affording many small bundles</option>
               </select>
             </div>
-            <button class="btn-primary" id="calcAbroadBtn">Optimize</button>
+            <button class="btn-primary" id="calcAbroadBtn" style="align-self:flex-end;">Optimize</button>
           </div>
         </div>
 

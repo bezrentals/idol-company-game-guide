@@ -1254,3 +1254,195 @@ nav[role="tablist"] .nav-link[aria-selected="true"] {
 .start-here-desc strong {
   color: var(--color-primary);
 }
+
+/* ============================================
+   MOBILE FIXES — Audit May 17, 2026
+   ============================================ */
+
+/* P1-FIX: Abroad calc-row — stack vertically on mobile, prevent overflow */
+@media (max-width: 640px) {
+  .calc-section .calc-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  .calc-section .calc-row .calc-label {
+    white-space: normal;
+    min-width: unset;
+  }
+  .calc-section .calc-row .filter-select,
+  .calc-section .calc-row .calc-input {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+  .calc-section .calc-row .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* P2-FIX: CEO calc-item-row — stack label above input+score */
+  .calc-item-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--space-2);
+  }
+  .calc-item-label {
+    grid-column: 1 / -1;
+  }
+  .calc-number-input {
+    width: 100%;
+    min-height: 44px; /* touch target */
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+  .calc-item-score {
+    text-align: right;
+    min-width: unset;
+    align-self: center;
+  }
+
+  /* P2-FIX: Grand total — bigger on mobile so it's the hero number */
+  .grand-total-value {
+    font-size: var(--text-xl) !important;
+  }
+  .grand-total-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  /* P2-FIX: Table bleed — allow table-wrap to break out of padded container */
+  .table-wrap {
+    margin-left: calc(-1 * var(--space-4));
+    margin-right: calc(-1 * var(--space-4));
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  /* But keep table-wrap inside .card from breaking out */
+  .card .table-wrap {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  /* P3-FIX: Nav open — full-width tap targets */
+  nav.open .nav-link {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    text-align: left;
+  }
+
+  /* P3-FIX: Hero stat card labels — prevent awkward wrap */
+  .hero-stat-label {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+  }
+  .hero-stat-num {
+    font-size: var(--text-lg);
+  }
+
+  /* General mobile input touch targets */
+  input[type="number"],
+  input[type="text"],
+  select {
+    min-height: 44px;
+    font-size: 16px; /* prevents iOS zoom */
+  }
+
+  /* Milestone buttons — full width on mobile */
+  .milestone-row {
+    flex-direction: column;
+  }
+  .milestone-btn {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Day calc card items padding */
+  .day-calc-items {
+    padding: var(--space-3);
+  }
+  .day-calc-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  /* Start here grid single column */
+  .start-here-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Girl cards battle stats — 2 col */
+  .battle-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Scorecard single column */
+  .scorecard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Section header desc text */
+  .section-desc {
+    font-size: var(--text-xs);
+  }
+}
+
+/* Extra narrow — 320px (older iPhones) */
+@media (max-width: 360px) {
+  .hero-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .scorecard-grid {
+    grid-template-columns: 1fr;
+  }
+  .battle-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === ABROAD CONTROLS LAYOUT === */
+.abroad-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: flex-end;
+}
+.abroad-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.abroad-field .calc-label {
+  white-space: nowrap;
+  font-size: var(--text-xs);
+}
+.abroad-field .calc-input {
+  width: 180px;
+}
+.abroad-field .filter-select {
+  max-width: 340px;
+  width: 100%;
+}
+@media (max-width: 640px) {
+  .abroad-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .abroad-field .calc-input,
+  .abroad-field .filter-select {
+    width: 100%;
+    max-width: 100%;
+  }
+  .abroad-controls .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
