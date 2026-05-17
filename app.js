@@ -485,7 +485,7 @@ function renderCEOCalculator(type) {
           <h3 class="day-calc-title" style="margin-bottom: var(--space-3);">Day ${day.day} — ${day.name}</h3>
           <div class="table-wrap">
             <table class="data-table">
-              <thead><tr><th>Rank</th><th>Resource</th><th>Points / Unit</th><th>Efficiency Tier</th></tr></thead>
+              <thead><tr><th class='hide-mobile'>Rank</th><th>Resource</th><th>Pts / Unit</th><th>Tier</th></tr></thead>
               <tbody>
                 ${[...day.items].sort((a,b) => b.pts - a.pts).map((item, i) => {
                   const tier = item.pts >= 1000000 ? 'elite' : item.pts >= 10000 ? 'high' : item.pts >= 1000 ? 'mid' : 'low';
@@ -585,7 +585,7 @@ function renderCEOCalculator(type) {
       </p>
       <div class="table-wrap">
         <table class="data-table">
-          <thead><tr><th>Resource</th><th>Qty Needed</th><th>Pts/Unit</th><th>Total Score</th></tr></thead>
+          <thead><tr><th>Resource</th><th>Need</th><th>Pts</th><th>Score</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>

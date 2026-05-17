@@ -1446,3 +1446,111 @@ nav[role="tablist"] .nav-link[aria-selected="true"] {
     justify-content: center;
   }
 }
+
+/* ============================================
+   CEO CALCULATOR MOBILE FIXES — May 17, 2026
+   ============================================ */
+
+/* Fix 1: All tab buttons — raise to 44px touch target */
+.tab-btn,
+.section-tabs .tab-btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Fix 2: Calculate button — 44px touch target */
+#calcGoalBtn {
+  min-height: 44px;
+}
+
+/* Fix 3: Select font size — prevent iOS zoom (must be >=16px) */
+select.filter-select,
+#goalDay,
+#goalTarget {
+  font-size: 16px !important;
+}
+
+/* Fix 4: Goal result table — force table to fit container, allow column truncation */
+#goalResult .table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fix 5: Day Efficiency tables — same overflow fix */
+#tool-efficiency .table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fix 6: On mobile, restructure efficiency table to drop Rank column and compress */
+@media (max-width: 500px) {
+  /* Goal result table — compress columns */
+  #goalResult .data-table th:first-child,
+  #goalResult .data-table td:first-child {
+    display: none; /* hide Rank col */
+  }
+  #goalResult .data-table th,
+  #goalResult .data-table td {
+    font-size: 12px;
+    padding: var(--space-2) var(--space-3);
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Day efficiency table — drop Rank, compress Points/Unit label */
+  #tool-efficiency .data-table th:first-child,
+  #tool-efficiency .data-table td:first-child {
+    display: none;
+  }
+  #tool-efficiency .data-table th,
+  #tool-efficiency .data-table td {
+    font-size: 12px;
+    padding: var(--space-2) var(--space-3);
+  }
+  /* Shorten "Points / Unit" header */
+  #tool-efficiency .data-table th:nth-child(3)::after {
+    content: '';
+  }
+
+  /* Goal planner calc-row — stack vertically */
+  #tool-goal .calc-section .calc-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  #tool-goal .calc-section .calc-row .filter-select,
+  #tool-goal .calc-section .calc-row .calc-input {
+    width: 100%;
+    font-size: 16px;
+  }
+  #tool-goal .calc-section .calc-row #calcGoalBtn {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  /* CEO type tabs and tool tabs — ensure full height */
+  .section-tabs {
+    gap: var(--space-2);
+  }
+  .tab-btn {
+    padding: var(--space-2) var(--space-3);
+    font-size: 11px;
+  }
+
+  /* Milestone block — full width btns, min height */
+  .milestone-btn {
+    min-height: 52px;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  /* Day efficiency title */
+  .day-calc-title {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 500px) {
+  .hide-mobile { display: none !important; }
+}
