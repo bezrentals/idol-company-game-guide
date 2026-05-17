@@ -26,6 +26,7 @@
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
+      <div class="last-updated">Updated May 16, 2026</div>
       <nav id="mainNav" role="tablist" aria-label="Main navigation">
         <button class="nav-link active" role="tab" data-tab="girls"       aria-selected="true">Girls</button>
         <button class="nav-link"        role="tab" data-tab="ceo"         aria-selected="false">CEO Planner</button>
@@ -56,6 +57,29 @@
         </div>
         <h1 class="hero-title">Apex Girls<br>Complete Guide</h1>
         <p class="hero-sub">Score estimators, goal planners, battle stats, collection calculators, and an abroad shop optimizer — all from your documents.</p>
+
+        <!-- START HERE -->
+        <div class="start-here">
+          <div class="start-here-title">• Start Here</div>
+          <div class="start-here-grid">
+            <div class="start-here-item">
+              <span class="start-here-label">New to the game?</span>
+              <span class="start-here-desc">Read <strong>PvP</strong> first — it explains how every stat works and the order to upgrade things. Then check <strong>Daily Quests</strong> so you never miss a free Resume.</span>
+            </div>
+            <div class="start-here-item">
+              <span class="start-here-label">Prepping for an event?</span>
+              <span class="start-here-desc">Go to <strong>CEO Planner</strong> → Score Estimator. Enter your inventory, see your projected score. Use <strong>Events</strong> for the hoarding guide — it tells you what to save and when to spend it.</span>
+            </div>
+            <div class="start-here-item">
+              <span class="start-here-label">Spending Abroad coins?</span>
+              <span class="start-here-desc">Go to <strong>Abroad Shop</strong>, enter your coin balance, pick your spend goal. The optimizer ranks every item and tells you what to buy in order.</span>
+            </div>
+            <div class="start-here-item">
+              <span class="start-here-label">SvS weekend?</span>
+              <span class="start-here-desc">Check <strong>SvS</strong> for tower timing (6h window, 1600 UTC, hold 3+ hours to win) and coin scoring rules before the event starts.</span>
+            </div>
+          </div>
+        </div>
         <div class="hero-cards">
           <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-label">CEO Calculators</div></div>
           <div class="hero-stat"><div class="hero-stat-num">34</div><div class="hero-stat-label">Girls w/ Battle Stats</div></div>
@@ -319,9 +343,9 @@
             <div style="display:flex;align-items:center;gap:var(--space-3);">
               <label class="calc-label" for="abroadGoal" style="white-space:nowrap;">Spend Goal</label>
               <select class="filter-select" id="abroadGoal">
-                <option value="priority">Best Priority First</option>
-                <option value="efficiency">Most Qty per Coin</option>
-                <option value="cheapest">Cheapest First</option>
+                <option value="priority">Best Priority First — recommended: spends on highest-value items (SSR photos, promo cards, rare collectibles)</option>
+                <option value="efficiency">Most Qty per Coin — maximizes raw resource volume (gems, glass, car parts)</option>
+                <option value="cheapest">Cheapest First — clears most line items; good when you're close to affording many small bundles</option>
               </select>
             </div>
             <button class="btn-primary" id="calcAbroadBtn">Optimize</button>
@@ -424,23 +448,23 @@
             <div class="card-title">Rob vs. Rally</div>
             <div class="table-wrap">
               <table class="data-table">
-                <thead><tr><th>Type</th><th>How</th><th>Verdict</th></tr></thead>
+                <thead><tr><th>Type</th><th>How it works</th><th>Verdict &amp; Why</th></tr></thead>
                 <tbody>
                   <tr>
                     <td><strong>Rob (Solo)</strong></td>
-                    <td style="font-size:var(--text-xs);">One player attacks a city alone</td>
+                    <td style="font-size:var(--text-xs);">You attack alone — only your fans fight</td>
                     <td><span style="color:var(--color-error);font-weight:700;">Avoid</span> — defender’s harbored fans easily overwhelm a solo attacker</td>
                   </tr>
                   <tr>
                     <td><strong>Rally (Group)</strong></td>
-                    <td style="font-size:var(--text-xs);">Group joins attack, combines millions of fans</td>
-                    <td><span style="color:var(--color-success);font-weight:700;">Preferred</span> — use 5-minute rallies so active players can join without locking girls for hours</td>
+                    <td style="font-size:var(--text-xs);">Group members join your attack — fans combine into one overwhelming force</td>
+                    <td><span style="color:var(--color-success);font-weight:700;">Always use this.</span> Use <strong>5-minute</strong> rallies — long rallies lock girls away for hours; 5-minute windows let members join without disrupting their own game.</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="callout" style="margin-top:var(--space-4);">
-              <strong>Artist selection for battle:</strong> Prioritize the higher star color (skill level) over raw level when two girls are close. Skill buffs apply to the entire fan army, not just the girl herself.
+              <strong>Artist selection for battle:</strong> When two girls are close in level, pick the one with the higher skill star color. Skill buffs apply to your <em>entire fan army</em> — a Yellow-star girl at level 85 beats a Gray-star girl at level 90 in most matchups.
             </div>
           </div>
           <div class="card">
@@ -463,6 +487,38 @@
                 </tbody>
               </table>
             </div>
+
+          <div class="card" style="grid-column: 1 / -1; margin-top: var(--space-4);">
+            <div class="card-title">HQ Glass Level Progression</div>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);">Glass required per level and cumulative totals. Data complete through Level 400 (source document). Always upgrade Glass <em>before</em> starting Floor Renovations — renovations are a % multiplier stacked on your base, so the higher your base, the more the renovation pays off.</p>
+            <div class="grid-2">
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead><tr><th>Level Range</th><th>Glass per Level</th><th>Range Total</th><th>Cumulative Total</th></tr></thead>
+                  <tbody>
+                    <tr><td>1–20</td><td class="num">5–100</td><td class="num">1,050</td><td class="num">1,050</td></tr>
+                    <tr><td>21–50</td><td class="num">110–400</td><td class="num">7,650</td><td class="num">8,700</td></tr>
+                    <tr><td>51–100</td><td class="num">410–900</td><td class="num">32,750</td><td class="num">41,450</td></tr>
+                    <tr><td>101–150</td><td class="num">910–1,400</td><td class="num">57,750</td><td class="num">99,200</td></tr>
+                    <tr><td>151–200</td><td class="num">1,410–1,900</td><td class="num">82,750</td><td class="num">181,950</td></tr>
+                    <tr><td>201–250</td><td class="num">1,910–2,400</td><td class="num">107,750</td><td class="num">289,700</td></tr>
+                    <tr><td>251–300</td><td class="num">2,410–2,900</td><td class="num">132,750</td><td class="num">422,450</td></tr>
+                    <tr><td>301–350</td><td class="num">2,910–3,400</td><td class="num">157,750</td><td class="num">580,200</td></tr>
+                    <tr><td>351–400</td><td class="num">3,410–3,800</td><td class="num">178,870</td><td class="num">759,070</td></tr>
+                    <tr class="total"><td>401–530</td><td class="num" colspan="2">Data incomplete in source docs</td><td class="num">—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <div class="callout">
+                  <strong>Upgrade rule:</strong> Raise HQ Glass level first — it buffs ALL girls at once. Floor Renovations (Wood/Steel) multiply off that base, so high Glass = bigger renovation payoff. Green unlock cards for Floor 1 renovation are available in the Parking Store.
+                </div>
+                <div class="callout" style="margin-top:var(--space-3);">
+                  <strong>Example math:</strong> A girl with base Sing of 1,481 at +54% renovation bonus = ~2,280 effective Sing. If you skip Glass upgrades and your base is 800, the same +54% only gives ~1,232. The base multiplies everything above it.
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </section>
