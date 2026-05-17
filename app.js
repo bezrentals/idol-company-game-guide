@@ -395,8 +395,72 @@ function renderCEOCalculator(type) {
     <!-- GOAL PLANNER PANEL -->
     <div id="tool-goal" class="tool-panel" style="display:none;">
       <div class="callout success" style="margin-bottom: var(--space-5);">
-        <strong>Goal Planner:</strong> Enter your target score for a specific day. See exactly how much of each resource you'd need to hit that target — one resource at a time.
+        <strong>Goal Planner:</strong> Pick a confirmed milestone target below or type your own, then select a day to see exactly what you'd need to stockpile to hit it.
       </div>
+
+      ${type === 'ultimate' ? `
+      <!-- ULTIMATE CEO CONFIRMED MILESTONES -->
+      <div class="milestone-block" style="margin-bottom: var(--space-6);">
+        <div class="milestone-block-title">Confirmed Ultimate CEO Targets <span class="milestone-source">(community-verified)</span></div>
+
+        <div class="milestone-tier-label">Daily Score Milestones — hit these each day for rewards</div>
+        <div class="milestone-row">
+          <button class="milestone-btn" data-target="400000">400K <span class="milestone-reward">Daily Reward Tier 1</span></button>
+          <button class="milestone-btn" data-target="1500000">1.5M <span class="milestone-reward">Daily Reward Tier 2</span></button>
+          <button class="milestone-btn milestone-btn--hot" data-target="4000000">4M <span class="milestone-reward">Daily Reward Tier 3 (max)</span></button>
+        </div>
+
+        <div class="milestone-tier-label" style="margin-top: var(--space-4);">Server Leaderboard — points needed to rank</div>
+        <div class="milestone-row">
+          <button class="milestone-btn milestone-btn--gold" data-target="24000000">24M <span class="milestone-reward">Minimum to appear on server leaderboard</span></button>
+        </div>
+
+        <div class="milestone-tier-label" style="margin-top: var(--space-4);">Overall Ranking Prizes — total across all 6 days</div>
+        <div class="milestone-prizes">
+          <div class="milestone-prize-row">
+            <span class="milestone-rank rank-top20">💠 Top 20</span>
+            <span class="milestone-prize-text">Exclusive SSR Girl (Nova SSR + 6,000 Photos) — <em>cannot be obtained any other way</em></span>
+          </div>
+          <div class="milestone-prize-row">
+            <span class="milestone-rank rank-top30">🏅 Top 30</span>
+            <span class="milestone-prize-text">Same exclusive SSR Girl + additional bonus items</span>
+          </div>
+          <div class="milestone-prize-row" style="opacity:0.6;">
+            <span class="milestone-rank">Ranks 4–10, 11–25, 26–50, 51–100</span>
+            <span class="milestone-prize-text">Tier structure confirmed — specific prizes not yet documented publicly</span>
+          </div>
+        </div>
+        <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-top:var(--space-3);">Source: community guides & YouTube (Apr–Jun 2025). Exact rewards per daily milestone tier not publicly documented — structure confirmed. Rewards for overall ranks 4–100 not published.</p>
+      </div>
+      ` : ''}
+
+      ${type === 'warmup' ? `
+      <!-- WARM-UP CEO CONFIRMED MILESTONES -->
+      <div class="milestone-block" style="margin-bottom: var(--space-6);">
+        <div class="milestone-block-title">Confirmed Warm-Up CEO Stage Milestones <span class="milestone-source">(community-verified)</span></div>
+        <div class="milestone-tier-label">Hit these per stage (Development · Innovation · Promotion) — same thresholds apply to each</div>
+        <div class="milestone-prizes" style="margin-top: var(--space-3);">
+          <div class="milestone-prize-row">
+            <button class="milestone-btn" data-target="500000" style="min-width:90px;">500K</button>
+            <span class="milestone-prize-text">100 Blueprint Points</span>
+          </div>
+          <div class="milestone-prize-row">
+            <button class="milestone-btn" data-target="2000000" style="min-width:90px;">2M</button>
+            <span class="milestone-prize-text">200 Blueprint Points · 200 SR Collection Gems</span>
+          </div>
+          <div class="milestone-prize-row">
+            <button class="milestone-btn milestone-btn--hot" data-target="4000000" style="min-width:90px;">4M</button>
+            <span class="milestone-prize-text">300 Vehicle Parts · 300 Blueprint Points · 300 SR Gems · <strong>1 Air Ticket</strong></span>
+          </div>
+          <div class="milestone-prize-row">
+            <button class="milestone-btn milestone-btn--gold" data-target="8000000" style="min-width:90px;">8M</button>
+            <span class="milestone-prize-text"><strong>1 Air Ticket</strong> · 500 SSR Collection Gems · 150 SSR Promote Cards · 150 Vehicle Advance Drawings</span>
+          </div>
+        </div>
+        <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-top:var(--space-3);">Air Tickets at 4M and 8M are required to travel to the cross-server Adventure Abroad map — hit 8M to collect both. Source: commonsensegamer.com (Apr 2026).</p>
+      </div>
+      ` : ''}
+
       <div class="calc-section">
         <div class="calc-row" style="margin-bottom: var(--space-4);">
           <label class="calc-label" for="goalDay">Select Day</label>
@@ -484,6 +548,20 @@ function renderCEOCalculator(type) {
   updateEstimator();
 
   // Wire up goal planner
+  // Milestone button quick-fill
+  container.querySelectorAll('.milestone-btn[data-target]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = container.querySelector('#goalTarget');
+      if (input) {
+        input.value = btn.dataset.target;
+        input.focus();
+        // highlight to confirm
+        btn.style.outline = '2px solid var(--color-gold)';
+        setTimeout(() => btn.style.outline = '', 800);
+      }
+    });
+  });
+
   container.querySelector('#calcGoalBtn')?.addEventListener('click', () => {
     const di = parseInt(container.querySelector('#goalDay').value);
     const target = parseInt(container.querySelector('#goalTarget').value) || 0;
