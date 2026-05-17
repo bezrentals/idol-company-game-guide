@@ -649,7 +649,7 @@ const girlsData = [
   { name: 'Sienna', genre: 'ROCK', pos: 'Center', type: 'SSR', sing: 33542, dance: 33542, total: 67084, skillDmg: 28, normalDmg: 28, reduceSkill: 12, reduceNormal: 0, fanCap: 0, rallyCap: 0, dmgAtk: 0, dmgDef: 0, from: 'Bali 4 (warmup)' },
   { name: 'Antonia', genre: 'ROCK', pos: 'Dancer', type: 'SSR', sing: 25071, dance: 34827, total: 59898, skillDmg: 24, normalDmg: 0, reduceSkill: 12, reduceNormal: 0, fanCap: 0, rallyCap: 0, dmgAtk: 0, dmgDef: 0, from: 'Rome 3 (dice)' },
   { name: 'Claire', genre: 'ROCK', pos: 'Center', type: 'SSR', sing: 22464, dance: 22464, total: 44928, skillDmg: 20, normalDmg: 0, reduceSkill: 0, reduceNormal: 50, fanCap: 0, rallyCap: 0, dmgAtk: 0, dmgDef: 0, from: 'Monthly Card' },
-  { name: 'Riku', genre: 'ROCK', pos: 'Vocalist', type: 'SSR', sing: 34827, dance: 25071, total: 59898, skillDmg: 24, normalDmg: 24, reduceSkill: 12, reduceNormal: 0, fanCap: 0, rallyCap: 0, dmgAtk: 0, dmgDef: 0, from: 'Tokyo 2 (dice)' },
+  { name: 'Riku', genre: 'ROCK', pos: 'Vocalist', type: 'SSR', sing: 34827, dance: 25071, total: 59898, skillDmg: 24, normalDmg: 24, reduceSkill: 0, reduceNormal: 12, fanCap: 0, rallyCap: 0, dmgAtk: 0, dmgDef: 0, from: 'Tokyo 2 (dice)' },
 ];
 
 girlsData.sort((a, b) => b.total - a.total);
