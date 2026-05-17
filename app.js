@@ -937,3 +937,213 @@ const bpData = [
     </tr>`;
   }).join('');
 })();
+
+// ============================================================
+// LINEUP BUILDER
+// ============================================================
+
+(function() {
+  // State
+  let manualLineup = [null, null, null, null, null];
+
+  // Stat weights per event focus
+  const FOCUS_WEIGHTS = {
+    attack:   { skillDmg: 2, normalDmg: 2, fanCap: 0.5, reduceSkill: 0.3, reduceNormal: 0.3, rallyCap: 0.3, dmgAtk: 0.01, dmgDef: 0, total: 0.001 },
+    defense:  { reduceSkill: 3, reduceNormal: 3, skillDmg: 0.5, normalDmg: 0.5, fanCap: 0.3, rallyCap: 0.3, dmgAtk: 0, dmgDef: 0.01, total: 0.001 },
+    fans:     { fanCap: 3, normalDmg: 1.5, skillDmg: 1, rallyCap: 2, reduceSkill: 0.2, reduceNormal: 0.2, dmgAtk: 0, dmgDef: 0, total: 0.001 },
+    balanced: { skillDmg: 1.5, normalDmg: 1.5, reduceSkill: 1.5, reduceNormal: 1.5, fanCap: 1, rallyCap: 1, dmgAtk: 0.005, dmgDef: 0.005, total: 0.001 },
+  };
+
+  const STAT_LABELS = {
+    skillDmg: 'Skill DMG', normalDmg: 'Normal DMG',
+    reduceSkill: 'Reduce Skill', reduceNormal: 'Reduce Normal',
+    fanCap: 'Fan Cap', rallyCap: 'Rally Cap',
+    dmgAtk: 'DMG Attack', dmgDef: 'DMG Defense', total: 'Total Stat'
+  };
+
+  const STAT_COLORS = {
+    skillDmg: 'var(--color-primary)', normalDmg: 'var(--color-cyan)',
+    reduceSkill: 'var(--color-success)', reduceNormal: 'var(--color-success)',
+    fanCap: 'var(--color-gold)', rallyCap: 'var(--color-gold)',
+    dmgAtk: 'var(--color-warning)', dmgDef: 'var(--color-warning)',
+    total: 'var(--color-text)'
+  };
+
+  function scoreGirl(girl, weights) {
+    return Object.entries(weights).reduce((sum, [k, w]) => sum + (girl[k] || 0) * w, 0);
+  }
+
+  function getFilteredPool() {
+    const genre = document.getElementById('lbGenre')?.value || '';
+    const pos   = document.getElementById('lbPosition')?.value || '';
+    const sort  = document.getElementById('lbSort')?.value || 'total';
+
+    return [...girlsData]
+      .filter(g => (!genre || g.genre === genre) && (!pos || g.pos === pos))
+      .sort((a, b) => {
+        const av = a[sort] || 0, bv = b[sort] || 0;
+        return bv - av || b.total - a.total;
+      });
+  }
+
+  function computeLineupTotals(girls) {
+    const totals = { skillDmg:0, normalDmg:0, reduceSkill:0, reduceNormal:0, fanCap:0, rallyCap:0, dmgAtk:0, dmgDef:0, sing:0, dance:0 };
+    girls.forEach(g => { if(g) Object.keys(totals).forEach(k => totals[k] += g[k] || 0); });
+    return totals;
+  }
+
+  function renderTotalsBar(totals, containerId) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    const stats = ['skillDmg','normalDmg','reduceSkill','reduceNormal','fanCap','rallyCap','dmgAtk','dmgDef'];
+    const active = stats.filter(k => totals[k] > 0);
+    if (!active.length) { el.innerHTML = ''; return; }
+    el.innerHTML = `
+      <div class="lineup-totals-grid">
+        ${active.map(k => `
+          <div class="lineup-total-item">
+            <span class="lineup-total-label" style="color:${STAT_COLORS[k]}">${STAT_LABELS[k]}</span>
+            <span class="lineup-total-value" style="color:${STAT_COLORS[k]}">
+              ${k === 'dmgAtk' || k === 'dmgDef' ? '+' + totals[k].toLocaleString() : '+' + totals[k] + '%'}
+            </span>
+          </div>
+        `).join('')}
+        <div class="lineup-total-item">
+          <span class="lineup-total-label">Total Sing</span>
+          <span class="lineup-total-value">${totals.sing.toLocaleString()}</span>
+        </div>
+        <div class="lineup-total-item">
+          <span class="lineup-total-label">Total Dance</span>
+          <span class="lineup-total-value">${totals.dance.toLocaleString()}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function makeGirlCard(girl, mode, idx) {
+    const genreC = { 'R&B':'rnb','POP':'pop','ROCK':'rock','HipHop':'hiphop','EDM':'edm' };
+    const posC   = { 'Center':'center','Vocalist':'vocalist','Dancer':'dancer' };
+    const stats = ['skillDmg','normalDmg','reduceSkill','reduceNormal','fanCap','rallyCap','dmgAtk','dmgDef']
+      .filter(k => girl[k])
+      .map(k => `<span class="lb-stat-chip" style="background:color-mix(in srgb,${STAT_COLORS[k]} 15%,transparent);color:${STAT_COLORS[k]};">
+        ${STAT_LABELS[k]} ${k === 'dmgAtk' || k === 'dmgDef' ? '+'+girl[k] : '+'+girl[k]+'%'}
+      </span>`).join('');
+
+    return `
+      <div class="lb-girl-card ${mode === 'pool' ? 'lb-pool-card' : 'lb-slot-filled'}"
+           data-name="${girl.name}" data-mode="${mode}" data-idx="${idx}"
+           role="button" tabindex="0"
+           aria-label="${mode === 'pool' ? 'Add ' + girl.name + ' to lineup' : 'Remove ' + girl.name}">
+        <div class="lb-card-top">
+          <div>
+            <div class="lb-girl-name">${girl.name}</div>
+            <div class="lb-girl-meta">
+              <span class="badge badge-${genreC[girl.genre]||''}">${girl.genre}</span>
+              <span class="badge badge-${posC[girl.pos]||''}">${girl.pos}</span>
+              ${girl.type === 'UR' ? '<span class="badge badge-ur">UR</span>' : ''}
+            </div>
+          </div>
+          <div class="lb-girl-total">${girl.total.toLocaleString()}</div>
+        </div>
+        <div class="lb-stats-row">${stats || '<span style="color:var(--color-text-faint);font-size:var(--text-xs);">Utility skills only</span>'}</div>
+        ${mode === 'slot' ? '<div class="lb-remove-hint">tap to remove</div>' : ''}
+      </div>
+    `;
+  }
+
+  function renderPool() {
+    const pool = getFilteredPool();
+    const container = document.getElementById('lbPool');
+    const countEl = document.getElementById('lbPoolCount');
+    if (!container) return;
+    countEl.textContent = `${pool.length} girls`;
+    container.innerHTML = pool.map(g => makeGirlCard(g, 'pool', -1)).join('');
+    container.querySelectorAll('.lb-pool-card').forEach(card => {
+      card.addEventListener('click', () => addToManual(card.dataset.name));
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') addToManual(card.dataset.name); });
+    });
+  }
+
+  function renderManualSlots() {
+    const container = document.getElementById('lbManualSlots');
+    if (!container) return;
+    container.innerHTML = manualLineup.map((girl, i) => {
+      if (!girl) return `<div class="lineup-slot empty" data-slot="${i}">Slot ${i+1}</div>`;
+      return makeGirlCard(girl, 'slot', i);
+    }).join('');
+    container.querySelectorAll('.lb-slot-filled').forEach(card => {
+      const idx = parseInt(card.dataset.idx);
+      card.addEventListener('click', () => removeFromManual(idx));
+    });
+    renderTotalsBar(computeLineupTotals(manualLineup.filter(Boolean)), 'lbManualStats');
+  }
+
+  function addToManual(name) {
+    const emptyIdx = manualLineup.indexOf(null);
+    if (emptyIdx === -1) return; // full
+    const girl = girlsData.find(g => g.name === name);
+    if (!girl) return;
+    if (manualLineup.some(g => g?.name === name)) return; // already in lineup
+    manualLineup[emptyIdx] = girl;
+    renderManualSlots();
+  }
+
+  function removeFromManual(idx) {
+    manualLineup[idx] = null;
+    renderManualSlots();
+  }
+
+  function runAutoSuggest() {
+    const genre   = document.getElementById('lbGenre')?.value || '';
+    const pos     = document.getElementById('lbPosition')?.value || '';
+    const focus   = document.getElementById('lbEvent')?.value || 'balanced';
+    const weights = FOCUS_WEIGHTS[focus];
+
+    let pool = girlsData.filter(g => (!genre || g.genre === genre) && (!pos || g.pos === pos));
+    pool = pool.map(g => ({ ...g, _score: scoreGirl(g, weights) })).sort((a,b) => b._score - a._score);
+    const best5 = pool.slice(0, 5);
+
+    const el = document.getElementById('lbSuggestion');
+    const cards = document.getElementById('lbSuggestionCards');
+    const meta = document.getElementById('lbSuggestionMeta');
+    if (!el || !cards) return;
+
+    const focusLabels = { attack: 'Attacking', defense: 'Defending', fans: 'Fan Growth', balanced: 'Balanced' };
+    const genreLabel = genre || 'All Genres';
+    const posLabel = pos || 'All Positions';
+    meta.textContent = `${focusLabels[focus]} · ${genreLabel} · ${posLabel}`;
+
+    cards.innerHTML = best5.map((g, i) => `
+      <div class="lb-suggestion-card">
+        <div class="lb-rank-badge">#${i+1}</div>
+        ${makeGirlCard(g, 'suggest', i)}
+        <div class="lb-score-bar">
+          <div class="lb-score-fill" style="width:${Math.round((g._score / (pool[0]._score || 1)) * 100)}%"></div>
+        </div>
+        <div class="lb-score-label">Combat score: ${Math.round(g._score).toLocaleString()}</div>
+      </div>
+    `).join('');
+
+    // Show totals for the best 5
+    renderTotalsBar(computeLineupTotals(best5), 'lbSuggestionStats');
+    el.style.display = 'block';
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Wire events
+  document.getElementById('lbGenre')?.addEventListener('change', renderPool);
+  document.getElementById('lbPosition')?.addEventListener('change', renderPool);
+  document.getElementById('lbSort')?.addEventListener('change', renderPool);
+  document.getElementById('lbAutoBtn')?.addEventListener('click', runAutoSuggest);
+  document.getElementById('lbClearSuggestion')?.addEventListener('click', () => {
+    document.getElementById('lbSuggestion').style.display = 'none';
+  });
+  document.getElementById('lbClearManual')?.addEventListener('click', () => {
+    manualLineup = [null, null, null, null, null];
+    renderManualSlots();
+  });
+
+  // Init
+  renderPool();
+  renderManualSlots();
+})();

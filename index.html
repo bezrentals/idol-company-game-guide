@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apex Girls — All-in-One Guide</title>
   <meta name="description" content="Complete resource guide: CEO Score Estimator, Goal Planner, Day Efficiency, Girls Battle Stats, Collection Calculator, Blueprint Tracker, Abroad Shop Optimizer." />
-  <link rel="stylesheet" href="./base.css?v=87" />
-  <link rel="stylesheet" href="./style.css?v=87" />
+  <link rel="stylesheet" href="./base.css?v=88" />
+  <link rel="stylesheet" href="./style.css?v=88" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
@@ -37,6 +37,7 @@
         <button class="nav-link"        role="tab" data-tab="svs"         aria-selected="false">SvS</button>
         <button class="nav-link"        role="tab" data-tab="dailyquests" aria-selected="false">Daily Quests</button>
         <button class="nav-link"        role="tab" data-tab="events"      aria-selected="false">Events</button>
+        <button class="nav-link"        role="tab" data-tab="lineup"      aria-selected="false">Lineup Builder</button>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" data-theme-toggle aria-label="Toggle mode">
@@ -839,6 +840,99 @@
         </div>
       </section>
 
+
+      <!-- ===================== LINEUP BUILDER ===================== -->
+      <section id="lineup" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-lineup">
+        <div class="section-header">
+          <h2 class="section-title"><span>Lineup</span> Builder</h2>
+          <p class="section-desc">Filter by genre and position, sort by any battle stat, then auto-suggest the best 5 girls for your event type. Click any girl to add her to your lineup slot.</p>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="lineup-controls">
+          <div class="lineup-control-group">
+            <label class="lineup-ctrl-label">Genre</label>
+            <select class="filter-select" id="lbGenre">
+              <option value="">All Genres</option>
+              <option value="R&B">R&amp;B</option>
+              <option value="POP">POP</option>
+              <option value="ROCK">ROCK</option>
+              <option value="HipHop">HipHop</option>
+              <option value="EDM">EDM</option>
+            </select>
+          </div>
+          <div class="lineup-control-group">
+            <label class="lineup-ctrl-label">Position</label>
+            <select class="filter-select" id="lbPosition">
+              <option value="">All Positions</option>
+              <option value="Center">Center</option>
+              <option value="Vocalist">Vocalist</option>
+              <option value="Dancer">Dancer</option>
+            </select>
+          </div>
+          <div class="lineup-control-group">
+            <label class="lineup-ctrl-label">Sort By</label>
+            <select class="filter-select" id="lbSort">
+              <option value="total">Total Stat</option>
+              <option value="skillDmg">Skill DMG</option>
+              <option value="normalDmg">Normal DMG</option>
+              <option value="reduceSkill">Reduce Skill</option>
+              <option value="reduceNormal">Reduce Normal</option>
+              <option value="fanCap">Fan Cap</option>
+              <option value="rallyCap">Rally Cap</option>
+              <option value="dmgAtk">DMG Attack</option>
+              <option value="dmgDef">DMG Defense</option>
+            </select>
+          </div>
+          <div class="lineup-control-group">
+            <label class="lineup-ctrl-label">Event Focus</label>
+            <select class="filter-select" id="lbEvent">
+              <option value="attack">Attacking (Skill + Normal DMG)</option>
+              <option value="defense">Defending (Reduce Skill + Normal)</option>
+              <option value="fans">Fan Growth (Fan Cap + Normal DMG)</option>
+              <option value="balanced">Balanced (All stats)</option>
+            </select>
+          </div>
+          <button class="btn-primary" id="lbAutoBtn" style="align-self:flex-end;">
+            ⚡ Best 5 for This Setup
+          </button>
+        </div>
+
+        <!-- BEST 5 SUGGESTION -->
+        <div id="lbSuggestion" class="lineup-suggestion" style="display:none;">
+          <div class="lineup-suggestion-header">
+            <span class="lineup-suggestion-title">⚡ Suggested Best 5</span>
+            <span id="lbSuggestionMeta" class="lineup-suggestion-meta"></span>
+            <button class="lineup-clear-btn" id="lbClearSuggestion">✕ Clear</button>
+          </div>
+          <div id="lbSuggestionCards" class="lineup-slots"></div>
+          <div id="lbSuggestionStats" class="lineup-totals"></div>
+        </div>
+
+        <!-- MANUAL LINEUP BUILDER -->
+        <div class="lineup-builder-section">
+          <div class="lineup-builder-header">
+            <span class="lineup-builder-title">Your Lineup (click girls below to add)</span>
+            <button class="lineup-clear-btn" id="lbClearManual">Clear All</button>
+          </div>
+          <div id="lbManualSlots" class="lineup-slots">
+            <div class="lineup-slot empty" data-slot="0">Slot 1</div>
+            <div class="lineup-slot empty" data-slot="1">Slot 2</div>
+            <div class="lineup-slot empty" data-slot="2">Slot 3</div>
+            <div class="lineup-slot empty" data-slot="3">Slot 4</div>
+            <div class="lineup-slot empty" data-slot="4">Slot 5</div>
+          </div>
+          <div id="lbManualStats" class="lineup-totals"></div>
+        </div>
+
+        <!-- GIRL POOL -->
+        <div class="lineup-pool-header">
+          <span id="lbPoolCount" class="lineup-pool-count"></span>
+          <span style="font-size:var(--text-xs);color:var(--color-text-faint);">Click a girl to add to your lineup</span>
+        </div>
+        <div id="lbPool" class="lineup-pool"></div>
+      </section>
+
     </div><!-- /.container -->
   </main>
 
@@ -848,6 +942,6 @@
     </div>
   </footer>
 
-  <script src="./app.js?v=87"></script>
+  <script src="./app.js?v=88"></script>
 </body>
 </html>
