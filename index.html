@@ -33,6 +33,10 @@
         <button class="nav-link"        role="tab" data-tab="blueprints"  aria-selected="false">Blueprints</button>
         <button class="nav-link"        role="tab" data-tab="resources"   aria-selected="false">Resources</button>
         <button class="nav-link"        role="tab" data-tab="abroad"      aria-selected="false">Abroad Shop</button>
+        <button class="nav-link"        role="tab" data-tab="pvp"         aria-selected="false">PvP</button>
+        <button class="nav-link"        role="tab" data-tab="svs"         aria-selected="false">SvS</button>
+        <button class="nav-link"        role="tab" data-tab="dailyquests" aria-selected="false">Daily Quests</button>
+        <button class="nav-link"        role="tab" data-tab="events"      aria-selected="false">Events</button>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" data-theme-toggle aria-label="Toggle mode">
@@ -325,6 +329,455 @@
         </div>
 
         <div id="abroadResult"></div>
+      </section>
+
+      <!-- ===================== PVP ===================== -->
+      <section id="pvp" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-pvp">
+        <div class="section-header">
+          <h2 class="section-title"><span>PvP</span> — Stats, Upgrades &amp; Battle</h2>
+          <p class="section-desc">Everything that affects your combat power. Sources: Kserske PvP 101 (Aug 2025), Doug Judy Base Stats guide (Feb 2025).</p>
+        </div>
+
+        <!-- CORE STAT RULE -->
+        <div class="callout" style="margin-bottom:var(--space-5);">
+          <strong>The fundamental rule:</strong> Sing = Attack &nbsp;·&nbsp; Dance = Defense &nbsp;·&nbsp; Manage = finances only (zero PvP value). Focus Sing for offense, don’t neglect Dance for defense. Fans = army size — more fans = more firepower in battle.
+        </div>
+
+        <div class="grid-2" style="margin-bottom:var(--space-8);">
+          <!-- Upgrade Priority -->
+          <div class="card">
+            <div class="card-title">Upgrade Priority Order</div>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);">Always improve base numbers before stacking % multipliers on top. Percentages scale off the base — a higher base = bigger multiplier payoff.</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>#</th><th>Priority</th><th>Why</th></tr></thead>
+                <tbody>
+                  <tr><td style="color:var(--color-gold);font-weight:700;">1</td><td><strong>Skills (Photos / Stars)</strong></td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Biggest single stat jump per investment</td></tr>
+                  <tr><td style="color:var(--color-primary);font-weight:700;">2</td><td><strong>Girl Level</strong></td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Raises base Sing/Dance directly</td></tr>
+                  <tr><td style="color:var(--color-cyan);font-weight:700;">3</td><td><strong>Assets &amp; Asset Levels</strong></td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Jewelry first (2★), Cars (3★), Property (4★)</td></tr>
+                  <tr><td style="color:var(--color-text-muted);font-weight:700;">4</td><td>HQ Glass Level</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Buffs ALL girls globally — upgrade before Floor Renovations</td></tr>
+                  <tr><td style="color:var(--color-text-muted);font-weight:700;">5</td><td>CEO Level</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Also buffs ALL girls globally</td></tr>
+                  <tr><td style="color:var(--color-text-muted);font-weight:700;">6</td><td>HQ Floor Renovations (Wood/Steel)</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">% multiplier — only after Glass is high</td></tr>
+                  <tr><td style="color:var(--color-text-muted);font-weight:700;">7</td><td>Car Parts (base number first)</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Do parts before Car Core — same % logic</td></tr>
+                  <tr><td style="color:var(--color-text-muted);font-weight:700;">8</td><td>Car Core (Plugs/Coils)</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">% stacked on car base — worthless if base is low</td></tr>
+                  <tr><td style="color:var(--color-text-muted);font-weight:700;">9</td><td>Blueprints, Collections, Villa, Relics</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">All contribute — prioritize after top 3</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Skill Stars -->
+          <div class="card">
+            <div class="card-title">Skill Star Levels</div>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);">Each girl has 3 skill slots. Unlock via intimacy, level up with private photos. Higher star color = better stats and abilities.</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Star Color</th><th>Level</th></tr></thead>
+                <tbody>
+                  <tr><td style="color:var(--color-text-muted);">None</td><td>0 — Locked</td></tr>
+                  <tr><td style="color:#9e9e9e;font-weight:600;">Gray</td><td>1</td></tr>
+                  <tr><td style="color:#4caf50;font-weight:600;">Green</td><td>2</td></tr>
+                  <tr><td style="color:#2196f3;font-weight:600;">Blue</td><td>3</td></tr>
+                  <tr><td style="color:#9c27b0;font-weight:600;">Purple</td><td>4</td></tr>
+                  <tr><td style="color:var(--color-gold);font-weight:700;">Yellow ★★★★★</td><td>5 — MAX</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout" style="margin-top:var(--space-4);">
+              <strong>Asset unlock by intimacy:</strong> 2★ = Jewelry &nbsp;·&nbsp; 3★ = Cars &nbsp;·&nbsp; 4★ = Property. Equip assets that boost Sing/Dance — skip Manage assets entirely for PvP builds.
+            </div>
+          </div>
+        </div>
+
+        <!-- All Stat Sources -->
+        <h3 style="font-family:var(--font-display);font-size:var(--text-base);font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--color-text);margin-bottom:var(--space-3);">Every Source That Affects PvP Stats</h3>
+        <div class="table-wrap" style="margin-bottom:var(--space-8);">
+          <table class="data-table">
+            <thead><tr><th>Source</th><th>What it does</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Skills / Photos</strong></td><td>Directly raises Sing &amp; Dance</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Priority #1. Use private photos to level up each star slot.</td></tr>
+              <tr><td><strong>Girl Level</strong></td><td>Raises base Sing/Dance</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Priority #2. Promote at level cap to continue.</td></tr>
+              <tr><td><strong>Assets (Jewelry/Car/Property)</strong></td><td>Passive stat boosts</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Priority #3. Level the assets up too — asset level matters.</td></tr>
+              <tr><td><strong>HQ Glass Level</strong></td><td>Buffs ALL girls globally</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Do this before Floor Renovations. Max HQ level is 15.</td></tr>
+              <tr><td><strong>HQ Floor Renovations</strong></td><td>% multiplier on base stats, 4 floors</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Uses Wood then Wood+Steel. Green unlock cards from Parking Store.</td></tr>
+              <tr><td><strong>CEO Level</strong></td><td>Buffs ALL girls simultaneously</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Raise it consistently — affects the whole roster.</td></tr>
+              <tr><td><strong>Car Parts (base)</strong></td><td>Increases Fan Cap + artist stats</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Do base parts upgrade before Car Core. Focus one car at a time.</td></tr>
+              <tr><td><strong>Car Core (Plugs/Coils)</strong></td><td>% stacked on car base</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Only valuable after car base is high. Example: +128% multiplier.</td></tr>
+              <tr><td><strong>Blueprints</strong></td><td>Raises Sing/Dance, Fan Cap, Rally Cap</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">12 blueprint levels × 15 items each.</td></tr>
+              <tr><td><strong>Collections (Museum)</strong></td><td>SR/UR items boost Sing &amp; Dance</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Museum has 4 floors. Upgrade showcase wall and floor.</td></tr>
+              <tr><td><strong>Villa Suite</strong></td><td>Stat boosts via Design Drafts</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Classic through Urban Heights — see Resources tab for costs.</td></tr>
+              <tr><td><strong>Villa Homemaking</strong></td><td>Stat boosts via helpers</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Focus first two helpers. Skip helpers with "cash logo" — those boost Manage only.</td></tr>
+              <tr><td><strong>HQ Skins</strong></td><td>Passive stacked buff to all artists</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Even inactive skins contribute. Win from events like Ultimate CEO.</td></tr>
+              <tr><td><strong>Group Plan (Artist tab)</strong></td><td>Sing &amp; Dance boost</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">The "Artist" column in Group Plan — not the Finance column.</td></tr>
+              <tr><td><strong>Relics</strong></td><td>Obtained via Yacht collection quests</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Max Relic level: 30. Upgrade with blue, purple, and gold relic gems.</td></tr>
+              <tr><td><strong>Flashcards</strong></td><td>Passive stat boost</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Complete each girl’s storyline to unlock her flashcard.</td></tr>
+              <tr><td><strong>Cooking / Dine</strong></td><td>Permanent Sing/Dance increase</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Feed “Pulse Box” or “Zen Meal” — permanent, not temporary.</td></tr>
+              <tr><td><strong>Khalifa Tower Cabinet</strong></td><td>Passive PvP buff (or debuff to enemies)</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Mayor’s Cabinet positions each grant a % title buff.</td></tr>
+              <tr><td><strong>World Tour Skills</strong></td><td>Damage dealt bonus (max 5 stars)</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Increases either normal attack or special skill damage.</td></tr>
+              <tr><td><strong>Team Rise</strong></td><td>Popularity buff to all artists</td><td style="font-size:var(--text-xs);color:var(--color-text-muted);">Completing team tasks buffs everyone, even girls not in that team.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Attack Strategy -->
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">Rob vs. Rally</div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Type</th><th>How</th><th>Verdict</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Rob (Solo)</strong></td>
+                    <td style="font-size:var(--text-xs);">One player attacks a city alone</td>
+                    <td><span style="color:var(--color-error);font-weight:700;">Avoid</span> — defender’s harbored fans easily overwhelm a solo attacker</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Rally (Group)</strong></td>
+                    <td style="font-size:var(--text-xs);">Group joins attack, combines millions of fans</td>
+                    <td><span style="color:var(--color-success);font-weight:700;">Preferred</span> — use 5-minute rallies so active players can join without locking girls for hours</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout" style="margin-top:var(--space-4);">
+              <strong>Artist selection for battle:</strong> Prioritize the higher star color (skill level) over raw level when two girls are close. Skill buffs apply to the entire fan army, not just the girl herself.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Key Numbers</div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Stat / Mechanic</th><th>Value</th></tr></thead>
+                <tbody>
+                  <tr><td>HQ Max Level</td><td class="num">15</td></tr>
+                  <tr><td>HQ Renovation Floors</td><td class="num">4</td></tr>
+                  <tr><td>Museum Floors</td><td class="num">4</td></tr>
+                  <tr><td>Blueprint Levels</td><td class="num">12</td></tr>
+                  <tr><td>Items per Blueprint Level</td><td class="num">15</td></tr>
+                  <tr><td>Max Relic Level</td><td class="num">30</td></tr>
+                  <tr><td>World Tour Skills Max</td><td class="num">5 stars</td></tr>
+                  <tr><td>Girl Level Cap (pre-Burj)</td><td class="num">100</td></tr>
+                  <tr><td>Girl Level Cap (post-Burj)</td><td class="num">120</td></tr>
+                  <tr><td>Example Renovation Multiplier</td><td class="num">+54%</td></tr>
+                  <tr><td>Example Car Core Multiplier</td><td class="num">+128%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== SVS ===================== -->
+      <section id="svs" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-svs">
+        <div class="section-header">
+          <h2 class="section-title"><span>SvS</span> — Server vs. Server</h2>
+          <p class="section-desc">Tower mechanics, coin scoring, market items, and strategy. Source: Doug Judy SvS Rules video (Apr 2025) and Tokyo Strategy guide (Jun 2025).</p>
+        </div>
+
+        <div class="grid-2" style="margin-bottom:var(--space-6);">
+          <div class="card">
+            <div class="card-title">Tower Mechanics</div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Rule</th><th>Value</th></tr></thead>
+                <tbody>
+                  <tr><td>Shield window duration</td><td class="num" style="color:var(--color-primary);">6 hours</td></tr>
+                  <tr><td>Window start time</td><td class="num" style="color:var(--color-primary);">1600 UTC</td></tr>
+                  <tr><td>Minimum hold to win</td><td class="num" style="color:var(--color-gold);">3+ hours</td></tr>
+                  <tr><td>Winning condition</td><td style="font-size:var(--text-xs);">Group that occupies tower for the longest total time during window</td></tr>
+                  <tr><td>Timer resets on capture?</td><td><span style="color:var(--color-error);font-weight:700;">No</span> — fixed timer, doesn’t reset</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">City Coin Scoring</div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Mechanic</th><th>Value</th></tr></thead>
+                <tbody>
+                  <tr><td>First-time landing bonus (enemy server)</td><td class="num" style="color:var(--color-gold);">50,000 coins</td></tr>
+                  <tr><td>Recurring earn rate</td><td class="num">Every 3 minutes</td></tr>
+                  <tr><td>Max coins per claim</td><td class="num">8,000</td></tr>
+                  <tr><td>Claim method</td><td style="font-size:var(--text-xs);">Manual — click button in lower-left SvS menu</td></tr>
+                  <tr><td>Who earns coins?</td><td style="font-size:var(--text-xs);">Everyone in Zone 3 (not just tower holders)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout warning" style="margin-bottom:var(--space-6);">
+          <strong>Coin tip:</strong> You must manually click to claim every 3 minutes to max your earnings. Accumulating enough coins for SSR photos means losing a lot of fans in combat — plan accordingly.
+        </div>
+
+        <div class="grid-2" style="margin-bottom:var(--space-6);">
+          <div class="card">
+            <div class="card-title">SvS Coin Market Items</div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Item</th><th>Cost</th><th>Qty</th></tr></thead>
+                <tbody>
+                  <tr><td>SSR Universal Photos</td><td class="num" style="color:var(--color-gold);">15,000</td><td class="num">500</td></tr>
+                  <tr><td>Cindy’s Photos</td><td class="num">Market</td><td class="num">—</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout" style="margin-top:var(--space-4);">
+              <strong>Cindy note:</strong> Requires 1,000 photos to reach 5 stars.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Cross-Server Map Strategy</div>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);">Based on Tokyo Adventure Abroad strategy (Jun 2025). Applies to any cross-server event.</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Principle</th><th>Detail</th></tr></thead>
+                <tbody>
+                  <tr><td>Groups needed to traverse map</td><td class="num">4 minimum</td></tr>
+                  <tr><td>UR capture = also wins</td><td style="font-size:var(--text-xs);">Capturing UR in a zone typically secures LM7 in Zone 4</td></tr>
+                  <tr><td>Map strategy</td><td style="font-size:var(--text-xs);">Build long and thin (stretch), not clustered landmarks</td></tr>
+                  <tr><td>Mini-alliances</td><td style="font-size:var(--text-xs);">Short “neighbor deals” beat long blood-brother alliances — less single-point-of-failure risk</td></tr>
+                  <tr><td>Primary target</td><td style="font-size:var(--text-xs);">Prevent #1 opponent from capturing UR assets, even if it means helping rivals capture them</td></tr>
+                  <tr><td>Defensive swap</td><td style="font-size:var(--text-xs);">Switch defensive captain and car immediately after taking the tower</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== DAILY QUESTS ===================== -->
+      <section id="dailyquests" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-dailyquests">
+        <div class="section-header">
+          <h2 class="section-title"><span>Daily Quests</span> — Stars, Points &amp; Rewards</h2>
+          <p class="section-desc">Complete these every day. Hit all 17 personal quests to claim all 3 Personal Presents. Hit group goals to claim all 5 Group Presents. Source: commonsensegamer.com (Apr 2026).</p>
+        </div>
+
+        <div class="callout success" style="margin-bottom:var(--space-5);">
+          <strong>Always aim for Present #3</strong> on personal quests — it contains a free Artist’s Resume (Interview), which is the most valuable daily reward. For group quests, <strong>Send Group Gifts</strong> alone gives up to 500 points — it’s the biggest single contributor.
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <div class="card" style="margin-bottom:var(--space-4);">
+              <div class="card-title">Personal Daily Quests</div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead><tr><th>Quest</th><th>Stars</th></tr></thead>
+                  <tbody>
+                    <tr><td>Record any single ×3</td><td class="num" style="color:var(--color-gold);">20</td></tr>
+                    <tr><td>Slot Machine pull</td><td class="num">15</td></tr>
+                    <tr><td>Perform an Interview</td><td class="num">15</td></tr>
+                    <tr><td>Complete a rally at a stadium</td><td class="num">15</td></tr>
+                    <tr><td>Gather 1k Gold Bars from a Hotel</td><td class="num">15</td></tr>
+                    <tr><td>Get 2k Fans from offline record sales</td><td class="num">15</td></tr>
+                    <tr><td>Level up any girl 1 time</td><td class="num">15</td></tr>
+                    <tr><td>Buy stocks in the market ×3</td><td class="num">15</td></tr>
+                    <tr><td>City Tour 10 times</td><td class="num">10</td></tr>
+                    <tr><td>Complete 3 Agent Gigs</td><td class="num">10</td></tr>
+                    <tr><td>Donate to a Group Plan once</td><td class="num">10</td></tr>
+                    <tr><td>Help your Group members 5 times</td><td class="num">10</td></tr>
+                    <tr><td>Perform in a Concert</td><td class="num">10</td></tr>
+                    <tr><td>Give gifts ×1</td><td class="num">15</td></tr>
+                    <tr><td>Upgrade any Store</td><td class="num">15</td></tr>
+                    <tr><td>Upgrade car parts</td><td class="num">15</td></tr>
+                    <tr><td>Upgrade the Corp Blueprint</td><td class="num">15</td></tr>
+                    <tr><td>Spend 500 Diamonds</td><td class="num">15</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">Personal Present Rewards</div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead><tr><th>Present</th><th>Contents</th></tr></thead>
+                  <tbody>
+                    <tr><td>Present #1</td><td style="font-size:var(--text-xs);">100 Diamonds &nbsp;·&nbsp; 50 SR Artist Promote Cards</td></tr>
+                    <tr><td>Present #2</td><td style="font-size:var(--text-xs);">1 Gold CD &nbsp;·&nbsp; 1 Backup Tape &nbsp;·&nbsp; 100 Diamonds &nbsp;·&nbsp; 50 Blueprint Points &nbsp;·&nbsp; 50 Glass</td></tr>
+                    <tr><td style="color:var(--color-gold);font-weight:700;">Present #3 ★</td><td style="font-size:var(--text-xs);"><strong>1 Gold CD &nbsp;·&nbsp; 1 Artist’s Resume &nbsp;·&nbsp; 100 Diamonds &nbsp;·&nbsp; 1 Sunglasses &nbsp;·&nbsp; 10 Building Cards &nbsp;·&nbsp; 1 Daily Group Gift</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card" style="margin-bottom:var(--space-4);">
+              <div class="card-title">Group Daily Quests</div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead><tr><th>Quest</th><th>Points (max)</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Send group gifts</strong></td><td class="num" style="color:var(--color-gold);">500</td></tr>
+                    <tr><td>Build group buildings</td><td class="num">120</td></tr>
+                    <tr><td>Join group rallies</td><td class="num">100</td></tr>
+                    <tr><td>Invest in group projects</td><td class="num">60</td></tr>
+                    <tr><td>Help group members</td><td class="num">50</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">Group Present Rewards</div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead><tr><th>Present</th><th>Contents</th></tr></thead>
+                  <tbody>
+                    <tr><td>Present #1</td><td style="font-size:var(--text-xs);">1 Glow Stick &nbsp;·&nbsp; 20k Group Coins &nbsp;·&nbsp; 30k Artist XP &nbsp;·&nbsp; 2k Gold Bar</td></tr>
+                    <tr><td>Present #2</td><td style="font-size:var(--text-xs);">2 Glow Stick &nbsp;·&nbsp; 20k Group Coins &nbsp;·&nbsp; 60k Artist XP &nbsp;·&nbsp; 4k Gold Bar</td></tr>
+                    <tr><td>Present #3</td><td style="font-size:var(--text-xs);">3 Glow Stick &nbsp;·&nbsp; 40k Group Coins &nbsp;·&nbsp; 90k Artist XP &nbsp;·&nbsp; 6k Gold Bar</td></tr>
+                    <tr><td>Present #4</td><td style="font-size:var(--text-xs);">4 Glow Stick &nbsp;·&nbsp; 40k Group Coins &nbsp;·&nbsp; 120k Artist XP &nbsp;·&nbsp; 8k Gold Bar</td></tr>
+                    <tr><td style="color:var(--color-gold);font-weight:700;">Present #5 ★</td><td style="font-size:var(--text-xs);"><strong>5 Glow Stick &nbsp;·&nbsp; 80k Group Coins &nbsp;·&nbsp; 120k Artist XP &nbsp;·&nbsp; 8k Gold Bar &nbsp;·&nbsp; 1 Artist’s Resume</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== EVENTS REFERENCE ===================== -->
+      <section id="events" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-events">
+        <div class="section-header">
+          <h2 class="section-title"><span>Events</span> — Reference &amp; Rewards</h2>
+          <p class="section-desc">Confirmed prize tables and task thresholds for recurring events. Source: fatwalletrefugee.com events guide (Feb 2025), commonsensegamer.com (Apr 2026).</p>
+        </div>
+
+        <div class="callout" style="margin-bottom:var(--space-6);">
+          <strong>General strategy:</strong> Save all major resource upgrades — car parts, girl levels, artíst resumes, blueprint upgrades — for the <strong>Ultimate CEO event</strong>. Every upgrade scores points. Don’t spend them outside of events unless necessary.
+        </div>
+
+        <div class="grid-2" style="margin-bottom:var(--space-8);">
+          <!-- Grammy Contest -->
+          <div class="card">
+            <div class="card-title">Grammy Contest <span style="font-size:var(--text-xs);font-weight:400;font-family:var(--font-body);text-transform:none;color:var(--color-text-muted);">5 days · 500 possible winners</span></div>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-3);">All musical genres compete. Final rank is based on total score vs. all players. Top 500 win something.</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Rank</th><th>Prize</th></tr></thead>
+                <tbody>
+                  <tr><td style="color:var(--color-gold);font-weight:700;">1st</td><td>Lamborghini Revo (SSR) &nbsp;·&nbsp; 30 Resumes</td></tr>
+                  <tr><td style="color:var(--color-gold);font-weight:700;">2nd</td><td>Lamborghini Revo (SSR) &nbsp;·&nbsp; 20 Resumes</td></tr>
+                  <tr><td style="color:var(--color-gold);font-weight:700;">3rd</td><td>Lamborghini Revo (SSR) &nbsp;·&nbsp; 15 Resumes</td></tr>
+                  <tr><td>4–10</td><td>VW Beetle (SR)</td></tr>
+                  <tr><td>11–20</td><td>10 Resumes</td></tr>
+                  <tr><td>21–100</td><td>8 Resumes</td></tr>
+                  <tr><td>101–500</td><td>5 Resumes</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Luxury Car Collector -->
+          <div class="card">
+            <div class="card-title">Luxury Car Collector <span style="font-size:var(--text-xs);font-weight:400;font-family:var(--font-body);text-transform:none;color:var(--color-text-muted);">3 days · cross-server</span></div>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-3);">Spend car parts to earn points. Both individual task rewards and cross-server ranking prizes.</p>
+            <p style="font-size:var(--text-xs);font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:var(--space-2);">Individual Tasks</p>
+            <div class="table-wrap" style="margin-bottom:var(--space-4);">
+              <table class="data-table">
+                <thead><tr><th>Task</th><th>Reward</th></tr></thead>
+                <tbody>
+                  <tr><td>Use 1k items to upgrade car parts</td><td style="font-size:var(--text-xs);">20k Asset Coins</td></tr>
+                  <tr><td>Use 5k items to upgrade car parts</td><td style="font-size:var(--text-xs);">30k Asset Coins &nbsp;·&nbsp; 50 HQ Cards</td></tr>
+                  <tr><td>Use 200 items to promote car</td><td style="font-size:var(--text-xs);">20k Asset Coins</td></tr>
+                  <tr><td>Use 1k items to promote car</td><td style="font-size:var(--text-xs);">30k Asset Coins &nbsp;·&nbsp; 50 HQ Cards</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="font-size:var(--text-xs);font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:var(--space-2);">Cross-Server Rankings</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Rank</th><th>Prize</th></tr></thead>
+                <tbody>
+                  <tr><td style="color:var(--color-gold);font-weight:700;">1st</td><td style="font-size:var(--text-xs);">Ice Cream Van &nbsp;·&nbsp; Garden Villa &nbsp;·&nbsp; 200k Asset Coins</td></tr>
+                  <tr><td style="color:var(--color-gold);font-weight:700;">2nd</td><td style="font-size:var(--text-xs);">Penthouse Apartment &nbsp;·&nbsp; 180k Asset Coins</td></tr>
+                  <tr><td style="color:var(--color-gold);font-weight:700;">3rd</td><td style="font-size:var(--text-xs);">Penthouse Apartment &nbsp;·&nbsp; 150k Asset Coins</td></tr>
+                  <tr><td>4–10</td><td style="font-size:var(--text-xs);">Lotus Zi &nbsp;·&nbsp; 120k Asset Coins</td></tr>
+                  <tr><td>11–20</td><td style="font-size:var(--text-xs);">Vanaps Ring &nbsp;·&nbsp; 100k Asset Coins</td></tr>
+                  <tr><td>21–100</td><td style="font-size:var(--text-xs);">80k Asset Coins</td></tr>
+                  <tr><td>101–500</td><td style="font-size:var(--text-xs);">50k Asset Coins</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Gala Show -->
+          <div class="card">
+            <div class="card-title">Gala Show <span style="font-size:var(--text-xs);font-weight:400;font-family:var(--font-body);text-transform:none;color:var(--color-text-muted);">2 days · rally stadiums with your group</span></div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Task</th><th>Reward</th></tr></thead>
+                <tbody>
+                  <tr><td>Complete 1 rally at stadium</td><td style="font-size:var(--text-xs);">20 Vehicle Upgrade Parts</td></tr>
+                  <tr><td>Complete 2 rallies</td><td style="font-size:var(--text-xs);">30 Vehicle Parts &nbsp;·&nbsp; 20 SR Promote Cards</td></tr>
+                  <tr><td>Complete 5 rallies</td><td style="font-size:var(--text-xs);">30 Vehicle Parts &nbsp;·&nbsp; 50 SR Promote Cards</td></tr>
+                  <tr><td>Complete 8 rallies</td><td style="font-size:var(--text-xs);">30 Vehicle Parts &nbsp;·&nbsp; 25 SSR Promote Cards</td></tr>
+                  <tr><td style="color:var(--color-gold);font-weight:700;">Complete 10 rallies (max)</td><td style="font-size:var(--text-xs);"><strong>1 Gold CD &nbsp;·&nbsp; 10 Vehicle Advance Drawings &nbsp;·&nbsp; 25 SSR Promote Cards</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Concert Performance -->
+          <div class="card">
+            <div class="card-title">Concert Performance <span style="font-size:var(--text-xs);font-weight:400;font-family:var(--font-body);text-transform:none;color:var(--color-text-muted);">2 days · 30 concerts to max</span></div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Concerts</th><th>Reward</th></tr></thead>
+                <tbody>
+                  <tr><td>3</td><td style="font-size:var(--text-xs);">30 Blueprints</td></tr>
+                  <tr><td>6</td><td style="font-size:var(--text-xs);">40 Blueprints &nbsp;·&nbsp; 5k Asset Coins</td></tr>
+                  <tr><td>15</td><td style="font-size:var(--text-xs);">50 Blueprints &nbsp;·&nbsp; 8k Asset Coins</td></tr>
+                  <tr><td>24</td><td style="font-size:var(--text-xs);">50 Blueprints &nbsp;·&nbsp; 12k Asset Coins</td></tr>
+                  <tr><td style="color:var(--color-gold);font-weight:700;">30 (max)</td><td style="font-size:var(--text-xs);"><strong>1 Gold CD &nbsp;·&nbsp; 80 Blueprints &nbsp;·&nbsp; 15k Asset Coins</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Gold Earn Day -->
+          <div class="card">
+            <div class="card-title">Gold Earn Day <span style="font-size:var(--text-xs);font-weight:400;font-family:var(--font-body);text-transform:none;color:var(--color-text-muted);">3 days</span></div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Task</th><th>Reward</th></tr></thead>
+                <tbody>
+                  <tr><td>Earn 4,000 Gold Bars</td><td style="font-size:var(--text-xs);">20 Car Parts</td></tr>
+                  <tr><td>Earn 8,000 Gold Bars</td><td style="font-size:var(--text-xs);">30 Car Parts</td></tr>
+                  <tr><td>Earn 14,000 Gold Bars</td><td style="font-size:var(--text-xs);">40 Car Parts &nbsp;·&nbsp; 100 Diamonds</td></tr>
+                  <tr><td>Earn 30,000 Gold Bars</td><td style="font-size:var(--text-xs);">10 Vehicle Advance Drawings &nbsp;·&nbsp; 200 Diamonds</td></tr>
+                  <tr><td style="color:var(--color-gold);font-weight:700;">Earn 60,000 Gold Bars (max)</td><td style="font-size:var(--text-xs);"><strong>20 Vehicle Advance Drawings &nbsp;·&nbsp; 300 Diamonds</strong></td></tr>
+                  <tr><td>Clear All Gold from Building (×3)</td><td style="font-size:var(--text-xs);">10 Building Cards &nbsp;·&nbsp; 10 Building Cards &nbsp;·&nbsp; 1 Gold CD</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Event Strategy Tips -->
+          <div class="card">
+            <div class="card-title">Event Hoarding Guide</div>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);">What to save and what event to spend it in:</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Resource</th><th>Best Event to Spend</th></tr></thead>
+                <tbody>
+                  <tr><td>Car Parts &amp; Promote Cars</td><td style="font-size:var(--text-xs);">Ultimate CEO Day 1 (Vehicle)</td></tr>
+                  <tr><td>Glass, Wood, Steel</td><td style="font-size:var(--text-xs);">Ultimate CEO Day 2 (HQ) &mdash; but also needed for Luxury Car Collector</td></tr>
+                  <tr><td>Purple &amp; Yellow Gems</td><td style="font-size:var(--text-xs);">Ultimate CEO Day 3 (Collectibles) &mdash; Gold Gems worth 2× points</td></tr>
+                  <tr><td>Drones, Drafts, CEO Coins, Keys</td><td style="font-size:var(--text-xs);">Ultimate CEO Day 4 (Villa)</td></tr>
+                  <tr><td>SSR Photos, Promo Cards, Resumes</td><td style="font-size:var(--text-xs);">Ultimate CEO Day 5 (Artist) &mdash; highest point value items</td></tr>
+                  <tr><td>Blueprints</td><td style="font-size:var(--text-xs);">Ultimate CEO Day 6 (Battle) &mdash; or Concert Performance for Gold CD</td></tr>
+                  <tr><td>Artist Resumes</td><td style="font-size:var(--text-xs);">Best Lover event &amp; Ultimate CEO Day 5</td></tr>
+                  <tr><td>Stadium Rallies</td><td style="font-size:var(--text-xs);">Gala Show &mdash; 10 rallies = Gold CD + SSR cards</td></tr>
+                  <tr><td>Gold Bars (hotel farming)</td><td style="font-size:var(--text-xs);">Gold Earn Day &mdash; 60k bars = 20 Advance Drawings + 300 Diamonds</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </section>
 
     </div><!-- /.container -->
