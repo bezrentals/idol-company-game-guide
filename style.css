@@ -984,3 +984,35 @@ footer {
   .grand-total-inner { flex-direction: column; align-items: flex-start; }
   .grand-total-value { font-size: var(--text-xl); }
 }
+
+/* === TABBED LAYOUT === */
+/* Hide hero section when tabs are active — keep it minimal */
+.hero { padding: clamp(var(--space-8), 5vw, var(--space-12)) 0 clamp(var(--space-6), 3vw, var(--space-8)); }
+
+/* Tab sections: only the active one shows */
+.tab-section {
+  display: none;
+}
+.tab-section.active {
+  display: block;
+}
+
+/* Nav tabs styled as proper clickable buttons */
+nav[role="tablist"] .nav-link {
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  background: none;
+}
+nav[role="tablist"] .nav-link.active,
+nav[role="tablist"] .nav-link[aria-selected="true"] {
+  color: var(--color-primary);
+  background: var(--color-primary-highlight);
+}
+
+/* Remove border-bottom from page sections since they're isolated now */
+.tab-section.active {
+  border-bottom: none;
+  padding-bottom: var(--space-16);
+  min-height: 60vh;
+}

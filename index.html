@@ -26,13 +26,13 @@
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      <nav id="mainNav" role="navigation" aria-label="Main navigation">
-        <a href="#girls"       class="nav-link" data-tab="girls">Girls</a>
-        <a href="#ceo"         class="nav-link" data-tab="ceo">CEO Planner</a>
-        <a href="#collections" class="nav-link" data-tab="collections">Collections</a>
-        <a href="#blueprints"  class="nav-link" data-tab="blueprints">Blueprints</a>
-        <a href="#resources"   class="nav-link" data-tab="resources">Resources</a>
-        <a href="#abroad"      class="nav-link" data-tab="abroad">Abroad Shop</a>
+      <nav id="mainNav" role="tablist" aria-label="Main navigation">
+        <button class="nav-link active" role="tab" data-tab="girls"       aria-selected="true">Girls</button>
+        <button class="nav-link"        role="tab" data-tab="ceo"         aria-selected="false">CEO Planner</button>
+        <button class="nav-link"        role="tab" data-tab="collections" aria-selected="false">Collections</button>
+        <button class="nav-link"        role="tab" data-tab="blueprints"  aria-selected="false">Blueprints</button>
+        <button class="nav-link"        role="tab" data-tab="resources"   aria-selected="false">Resources</button>
+        <button class="nav-link"        role="tab" data-tab="abroad"      aria-selected="false">Abroad Shop</button>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" data-theme-toggle aria-label="Toggle mode">
@@ -61,12 +61,12 @@
       </div>
     </section>
 
-    <div class="container" style="padding-top: var(--space-8);">
+    <div class="container" style="padding-top: var(--space-6);">
 
       <!-- ===================== GIRLS ===================== -->
-      <section id="girls" class="page-section">
+      <section id="girls" class="page-section tab-section active" role="tabpanel" aria-labelledby="tab-girls">
         <div class="section-header">
-          <h2 class="section-title"><span>Girls</span> — Battle Stats</h2>
+          <h2 class="section-title"><span>Girls</span> <span style="color:var(--color-text)">— Battle Stats</span></h2>
           <p class="section-desc">Stats from the Lineup Calculator (FILTER ONLY — Do NOT sort). Includes Skill DMG, Normal DMG, Reduce Skill/Normal, Fan Cap, Rally Cap, DMG Attack, and DMG Defense. Data converted: Damage to Player = Skill DMG + Normal DMG combined.</p>
         </div>
 
@@ -112,7 +112,7 @@
       </section>
 
       <!-- ===================== CEO PLANNER ===================== -->
-      <section id="ceo" class="page-section">
+      <section id="ceo" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-ceo">
         <div class="section-header">
           <h2 class="section-title"><span>CEO Event</span> — Planner &amp; Calculators</h2>
           <p class="section-desc">Three tools in one: Score Estimator (enter your inventory → see projected score), Goal Planner (set a target → see what you need), and Day Efficiency (which resources give most points per unit). Switch between event types below.</p>
@@ -134,7 +134,7 @@
       </section>
 
       <!-- ===================== COLLECTIONS ===================== -->
-      <section id="collections" class="page-section">
+      <section id="collections" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-collections">
         <div class="section-header">
           <h2 class="section-title"><span>Collections</span> — Gems &amp; Calculator</h2>
           <p class="section-desc">Total gems per collection theme, gem requirements per level, and a calculator to find exactly how many gems you need between any two levels.</p>
@@ -204,7 +204,7 @@
       </section>
 
       <!-- ===================== BLUEPRINTS ===================== -->
-      <section id="blueprints" class="page-section">
+      <section id="blueprints" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-blueprints">
         <div class="section-header">
           <h2 class="section-title"><span>Blueprints</span> — Tier Requirements</h2>
           <p class="section-desc">BPs required per tier and cumulative running total. Tiers 1–9 cost data is incomplete in source documents (marked —). Master Blueprint Group Battle data follows.</p>
@@ -242,7 +242,7 @@
       </section>
 
       <!-- ===================== RESOURCES ===================== -->
-      <section id="resources" class="page-section">
+      <section id="resources" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-resources">
         <div class="section-header">
           <h2 class="section-title"><span>Resources</span> — Villa &amp; Car Parts</h2>
           <p class="section-desc">Villa construction costs (Drones + Design Drafts per tier), and Car Parts / Advance Drawing requirements from Rank A through SSS.</p>
@@ -288,7 +288,7 @@
       </section>
 
       <!-- ===================== ABROAD SHOP ===================== -->
-      <section id="abroad" class="page-section">
+      <section id="abroad" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-abroad">
         <div class="section-header">
           <h2 class="section-title"><span>Abroad Shop</span> — Optimizer</h2>
           <p class="section-desc">Enter your available Abroad Coins and choose a spending goal. The optimizer ranks every item and shows exactly what you can buy in order, how much you spend, and what's left over.</p>

@@ -17,7 +17,37 @@
   if (t) { setIcon(t, d); t.addEventListener('click', () => { d = d === 'dark' ? 'light' : 'dark'; r.setAttribute('data-theme', d); setIcon(t, d); }); }
 })();
 
-// === MOBILE NAV ===
+// === TABBED NAVIGATION ===
+function switchTab(targetId) {
+  // Hide all panels
+  document.querySelectorAll('.tab-section').forEach(s => {
+    s.classList.remove('active');
+  });
+  // Deactivate all nav buttons
+  document.querySelectorAll('nav[role="tablist"] .nav-link').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
+  // Show target panel
+  const panel = document.getElementById(targetId);
+  if (panel) panel.classList.add('active');
+  // Activate matching nav button
+  const btn = document.querySelector(`nav[role="tablist"] [data-tab="${targetId}"]`);
+  if (btn) { btn.classList.add('active'); btn.setAttribute('aria-selected', 'true'); }
+  // Scroll to top of content area
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // If switching to CEO, make sure calculator is rendered
+  if (targetId === 'ceo') renderCEOCalculator(currentCEOType);
+  // If switching to abroad, refresh optimizer
+  if (targetId === 'abroad') renderAbroadOptimizer();
+}
+
+// Wire nav tab buttons
+document.querySelectorAll('nav[role="tablist"] [data-tab]').forEach(btn => {
+  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+});
+
+// Mobile nav toggle
 (function () {
   const toggle = document.getElementById('navToggle');
   const nav = document.getElementById('mainNav');
@@ -27,20 +57,14 @@
       toggle.setAttribute('aria-expanded', open);
     });
   }
-  document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => nav?.classList.remove('open')));
+  // Close mobile nav when a tab is picked
+  document.querySelectorAll('nav[role="tablist"] [data-tab]').forEach(b =>
+    b.addEventListener('click', () => nav?.classList.remove('open'))
+  );
 })();
 
-// === ACTIVE NAV ON SCROLL ===
-const navLinks = document.querySelectorAll('.nav-link[data-tab]');
-new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) navLinks.forEach(l => l.classList.toggle('active', l.dataset.tab === e.target.id));
-  });
-}, { rootMargin: '-40% 0px -50% 0px' }).observe && document.querySelectorAll('.page-section').forEach(s =>
-  new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) navLinks.forEach(l => l.classList.toggle('active', l.dataset.tab === e.target.id)); });
-  }, { rootMargin: '-40% 0px -50% 0px' }).observe(s)
-);
+// Start on Girls tab
+switchTab('girls');
 
 // ============================================================
 // DATA
@@ -492,15 +516,14 @@ function renderCEOCalculator(type) {
   });
 }
 
-// CEO event type tabs
-document.querySelectorAll('[data-ceo]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('[data-ceo]').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
-    btn.classList.add('active'); btn.setAttribute('aria-selected','true');
-    renderCEOCalculator(btn.dataset.ceo);
-  });
+// CEO event type tabs — delegated (container built dynamically)
+document.addEventListener('click', e => {
+  const btn = e.target.closest('[data-ceo]');
+  if (!btn) return;
+  document.querySelectorAll('[data-ceo]').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+  renderCEOCalculator(btn.dataset.ceo);
 });
-renderCEOCalculator('ultimate');
 
 // ============================================================
 // GIRLS DATA — from Lineup Calculator (battle stats)
