@@ -646,32 +646,32 @@ renderGirls(girlsData);
 // ============================================================
 
 const ABROAD_ITEMS = [
-  { name: 'Girl Photos (SSR)', cost: 100, qty: 500, priority: 5, category: 'Artist' },
-  { name: 'SSR Promo Cards', cost: 24, qty: 2000, priority: 4, category: 'Artist' },
-  { name: 'SR Promo Cards', cost: 9, qty: 4000, priority: 3, category: 'Artist' },
-  { name: 'Promo Manuals', cost: 750, qty: 200, priority: 2, category: 'Artist' },
-  { name: 'Blueprints', cost: 3, qty: 10000, priority: 3, category: 'Building' },
-  { name: 'Glass', cost: 3, qty: 20000, priority: 2, category: 'HQ' },
-  { name: 'Car Parts', cost: 3, qty: 10000, priority: 2, category: 'Vehicle' },
-  { name: 'Yellow Gems', cost: 6, qty: 5000, priority: 3, category: 'Collection' },
-  { name: 'Purple Gems', cost: 3, qty: 10000, priority: 3, category: 'Collection' },
-  { name: 'Drones', cost: 3, qty: 10000, priority: 2, category: 'Villa' },
-  { name: 'Villa Drafts', cost: 30, qty: 2000, priority: 2, category: 'Villa' },
-  { name: 'CEO Coins', cost: 12, qty: 5000, priority: 1, category: 'Villa' },
-  { name: 'Keys', cost: 120, qty: 500, priority: 1, category: 'Villa' },
-  { name: 'Spark Plugs', cost: 12, qty: 5000, priority: 1, category: 'Vehicle' },
-  { name: 'Ignition Coils', cost: 120, qty: 500, priority: 1, category: 'Vehicle' },
-  { name: 'Wood', cost: 12, qty: 5000, priority: 1, category: 'HQ' },
-  { name: 'Steel', cost: 120, qty: 500, priority: 1, category: 'HQ' },
-  { name: 'Vehicle Drawings', cost: 15, qty: 2000, priority: 2, category: 'Vehicle' },
-  { name: 'Building Cards', cost: 25, qty: 1000, priority: 1, category: 'Building' },
-  { name: 'Asset Coins', cost: 25, qty: 1000, priority: 1, category: 'Artist' },
-  { name: 'Interviews', cost: 300, qty: 10, priority: 2, category: 'Artist' },
-  { name: 'Demos', cost: 300, qty: 10, priority: 2, category: 'Battle' },
-  { name: 'Yellow House', cost: 50000, qty: 1, priority: 5, category: 'Collection' },
-  { name: 'Yellow Car', cost: 25000, qty: 1, priority: 4, category: 'Vehicle' },
-  { name: 'Purple Car', cost: 10000, qty: 1, priority: 3, category: 'Vehicle' },
-  { name: 'Purple House', cost: 20000, qty: 1, priority: 3, category: 'Collection' },
+  { name: 'Girl Photos (SSR)', cost: 100, qty: 500, priority: 5, category: 'Artist', desc: 'Unlock or upgrade SSR girl skills — needed for all 3 skill levels' },
+  { name: 'SSR Promo Cards', cost: 24, qty: 2000, priority: 4, category: 'Artist', desc: 'Promote SSR girls to higher star levels, increasing their stat power' },
+  { name: 'SR Promo Cards', cost: 9, qty: 4000, priority: 3, category: 'Artist', desc: 'Promote SR girls — less impactful than SSR but useful for filler slots' },
+  { name: 'Promo Manuals', cost: 750, qty: 200, priority: 2, category: 'Artist', desc: 'Used for artist promotion alongside promo cards — high cost, buy only if needed' },
+  { name: 'Blueprints', cost: 3, qty: 10000, priority: 3, category: 'Building', desc: 'Required to advance Blueprint tiers (Tier 1–21), unlocks stronger building bonuses' },
+  { name: 'Glass', cost: 3, qty: 20000, priority: 2, category: 'HQ', desc: 'Headquarters upgrade material — needed for every HQ level' },
+  { name: 'Car Parts', cost: 3, qty: 10000, priority: 2, category: 'Vehicle', desc: 'Upgrade car rank (all 4 parts must be upgraded equally to advance rank)' },
+  { name: 'Yellow Gems', cost: 6, qty: 5000, priority: 3, category: 'Collection', desc: 'Level up Yellow collection tiers — worth 2× CEO points vs Purple on Day 3' },
+  { name: 'Purple Gems', cost: 3, qty: 10000, priority: 3, category: 'Collection', desc: 'Level up Purple collection tiers — half the CEO point value of Yellow but cheaper' },
+  { name: 'Drones', cost: 3, qty: 10000, priority: 2, category: 'Villa', desc: 'Build and upgrade Villa rooms (Classic through Urban Heights)' },
+  { name: 'Villa Drafts', cost: 30, qty: 2000, priority: 2, category: 'Villa', desc: 'Design Drafts needed alongside Drones for each Villa room upgrade' },
+  { name: 'CEO Coins', cost: 12, qty: 5000, priority: 1, category: 'Villa', desc: 'Villa Homemaking material — used for CEO coin upgrades in homemaking tiers' },
+  { name: 'Keys', cost: 120, qty: 500, priority: 1, category: 'Villa', desc: 'Villa Homemaking material — pairs with CEO coins for each homemaking tier' },
+  { name: 'Spark Plugs', cost: 12, qty: 5000, priority: 1, category: 'Vehicle', desc: 'Car Core upgrade component — Novice grade, large quantities needed early' },
+  { name: 'Ignition Coils', cost: 120, qty: 500, priority: 1, category: 'Vehicle', desc: 'Car Core upgrade component — pairs with spark plugs; Enhanced grade costs more' },
+  { name: 'Wood', cost: 12, qty: 5000, priority: 1, category: 'HQ', desc: 'HQ floor upgrade material — Basic Wood for early floors, HQ Wood for later' },
+  { name: 'Steel', cost: 120, qty: 500, priority: 1, category: 'HQ', desc: 'HQ floor upgrade material — Basic Steel Ingots for early, HQ Steel for later floors' },
+  { name: 'Vehicle Drawings', cost: 15, qty: 2000, priority: 2, category: 'Vehicle', desc: 'Advance Car Drawings — needed to push car rank from S to SSS tier' },
+  { name: 'Building Cards', cost: 25, qty: 1000, priority: 1, category: 'Building', desc: 'Levels up the Building Cards progression (Levels 1–15), grants passive bonuses' },
+  { name: 'Asset Coins', cost: 25, qty: 1000, priority: 1, category: 'Artist', desc: 'Level up asset investments (Jewelry, Car, Property) to generate passive income' },
+  { name: 'Interviews', cost: 300, qty: 10, priority: 2, category: 'Artist', desc: 'Earns artist EXP — scored in CEO Artist day (60,000 pts each in Ultimate)' },
+  { name: 'Demos', cost: 300, qty: 10, priority: 2, category: 'Battle', desc: 'Scored in CEO Battle day (60,000 pts each) — small qty but high point value' },
+  { name: 'Yellow House', cost: 50000, qty: 1, priority: 5, category: 'Collection', desc: 'Rare decoration item — grants a Yellow collection slot or theme for the collection museum' },
+  { name: 'Yellow Car', cost: 25000, qty: 1, priority: 4, category: 'Vehicle', desc: 'Rare vehicle decoration — unlocks a Yellow car display in your collection' },
+  { name: 'Purple Car', cost: 10000, qty: 1, priority: 3, category: 'Vehicle', desc: 'Unlocks a Purple car display in your vehicle collection' },
+  { name: 'Purple House', cost: 20000, qty: 1, priority: 3, category: 'Collection', desc: 'Unlocks a Purple house decoration for the collection museum' },
 ];
 
 function renderAbroadOptimizer() {
@@ -722,23 +722,24 @@ function renderAbroadOptimizer() {
       <table class="data-table">
         <thead>
           <tr>
-            <th>Buy Order</th>
+            <th>#</th>
             <th>Item</th>
-            <th>Category</th>
-            <th>Cost/Each</th>
-            <th>Full Bundle (Qty × Cost)</th>
+            <th>What it's used for</th>
+            <th>Total Cost</th>
             <th>Status</th>
             <th>Coins After</th>
           </tr>
         </thead>
         <tbody>
           ${results.map((r, i) => `
-            <tr style="${r.canAfford ? '' : 'opacity: 0.45;'}">
+            <tr style="${r.canAfford ? '' : 'opacity: 0.4;'}">
               <td style="color:var(--color-text-muted);font-weight:700;">${r.canAfford ? '#' + (results.filter((x,j) => x.canAfford && j <= i).length) : '—'}</td>
-              <td style="font-weight:${r.canAfford ? '600' : '400'};">${r.name}</td>
-              <td><span class="badge" style="background:var(--color-surface-offset);color:var(--color-text-muted);">${r.category}</span></td>
-              <td class="num">${r.cost.toLocaleString()}</td>
-              <td class="num">${r.qty.toLocaleString()} × ${r.cost.toLocaleString()} = <strong>${r.totalCost.toLocaleString()}</strong></td>
+              <td>
+                <div style="font-weight:${r.canAfford ? '600' : '400'};">${r.name}</div>
+                <div style="font-size:var(--text-xs);color:var(--color-text-faint);">${r.qty.toLocaleString()} × ${r.cost.toLocaleString()} coins</div>
+              </td>
+              <td style="font-size:var(--text-xs);color:var(--color-text-muted);max-width:220px;">${r.desc}</td>
+              <td class="num" style="font-weight:700;">${r.totalCost.toLocaleString()}</td>
               <td>${r.canAfford
                 ? '<span style="color:var(--color-success);font-weight:700;">✓ Buy</span>'
                 : `<span style="color:var(--color-text-faint);">Need ${(r.totalCost - coins).toLocaleString()} more</span>`}</td>

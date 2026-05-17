@@ -61,6 +61,12 @@
       </div>
     </section>
 
+    <!-- DATA FRESHNESS BANNER -->
+    <div class="data-banner">
+      <span>📋 Data: April 27, 2026 · Source: @SrCuentaOficial (Server 717) &amp; Larry's compilation · Verify point values against your current patch before major events.</span>
+      <span class="data-banner-credit">Built by Brian · Report errors in alliance Discord</span>
+    </div>
+
     <div class="container" style="padding-top: var(--space-6);">
 
       <!-- ===================== GIRLS ===================== -->
@@ -72,6 +78,15 @@
 
         <div class="callout warning">
           <strong>FILTER ONLY — Do NOT sort.</strong> Damage to player has been converted to equal Skill Damage and Normal Damage. VIP bonuses are NOT included here — see the Scorecard section below.
+        </div>
+        <div class="stat-legend">
+          <span class="stat-legend-title">Reading the stats:</span>
+          <span class="legend-item"><span class="legend-dot" style="background:var(--color-primary)"></span><strong>Skill DMG</strong> — boosts active skill hits (higher = harder hits)</span>
+          <span class="legend-item"><span class="legend-dot" style="background:var(--color-cyan)"></span><strong>Normal DMG</strong> — boosts basic auto-attacks</span>
+          <span class="legend-item"><span class="legend-dot" style="background:var(--color-success)"></span><strong>Reduce Skill/Normal</strong> — cuts incoming damage (defensive)</span>
+          <span class="legend-item"><span class="legend-dot" style="background:var(--color-gold)"></span><strong>Fan/Rally Cap</strong> — increases max fans or rally size</span>
+          <span class="legend-item"><span class="legend-dot" style="background:var(--color-warning)"></span><strong>DMG Attack/Def</strong> — flat DPS added on attack or defense</span>
+          <p style="width:100%;margin-top:var(--space-2);font-size:var(--text-xs);color:var(--color-text-faint);">Cards only show stats the girl actually has — blank means 0. Stats shown at Level 140 + triple gold skills.</p>
         </div>
 
         <div class="filter-bar" style="margin-top: var(--space-5);">
@@ -118,8 +133,11 @@
           <p class="section-desc">Three tools in one: Score Estimator (enter your inventory → see projected score), Goal Planner (set a target → see what you need), and Day Efficiency (which resources give most points per unit). Switch between event types below.</p>
         </div>
 
+        <div class="callout" style="margin-bottom: var(--space-4);">
+          <strong>How to use:</strong> Pick your event type above, then choose a tool tab. <em>Score Estimator</em> — enter what you have → see your projected score. <em>Goal Planner</em> — enter a target score → see what you need to stockpile. <em>Day Efficiency</em> — see which resources give the most points per unit so you know where to spend first.
+        </div>
         <div class="callout warning" style="margin-bottom: var(--space-5);">
-          <strong>Reminder:</strong> Always assume 10–18% efficiency loss — you won't convert 100% of your resources into points.
+          <strong>10–18% efficiency loss</strong> is sourced directly from the original community spreadsheet (April 2026). It reflects real observed conversion rates — not a guess. Use 10% as your optimistic estimate and 18% as your conservative floor when planning.
         </div>
 
         <!-- Event Type Tabs -->
@@ -170,7 +188,7 @@
         <div class="grid-2">
           <div class="card">
             <div class="card-title">Gem Calculator</div>
-            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);">Enter your current level and target level, plus how many collections you're upgrading.</p>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);">Enter your current level and target level. "Collections" = how many you're upgrading at once. Result is total gems across all of them.</p>
             <div class="calc-row"><label class="calc-label" for="gemFromLevel">From Level</label><input type="number" class="calc-input" id="gemFromLevel" min="1" max="49" value="1" /></div>
             <div class="calc-row"><label class="calc-label" for="gemToLevel">To Level</label><input type="number" class="calc-input" id="gemToLevel" min="2" max="50" value="50" /></div>
             <div class="calc-row"><label class="calc-label" for="gemCollections">Collections</label><input type="number" class="calc-input" id="gemCollections" min="1" max="10" value="1" /></div>
@@ -207,7 +225,7 @@
       <section id="blueprints" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-blueprints">
         <div class="section-header">
           <h2 class="section-title"><span>Blueprints</span> — Tier Requirements</h2>
-          <p class="section-desc">BPs required per tier and cumulative running total. Tiers 1–9 cost data is incomplete in source documents (marked —). Master Blueprint Group Battle data follows.</p>
+          <p class="section-desc">BPs required to advance each tier, plus a cumulative running total. Use the "Cumulative" column to know your total BP stockpile goal before pushing to a target tier. Tiers 1–9 individual costs were absent from source documents (marked —) but cumulative data is complete from Tier 10 onward.</p>
         </div>
         <div class="grid-2">
           <div class="table-wrap">
@@ -245,7 +263,7 @@
       <section id="resources" class="page-section tab-section" role="tabpanel" aria-labelledby="tab-resources">
         <div class="section-header">
           <h2 class="section-title"><span>Resources</span> — Villa &amp; Car Parts</h2>
-          <p class="section-desc">Villa construction costs (Drones + Design Drafts per tier), and Car Parts / Advance Drawing requirements from Rank A through SSS.</p>
+          <p class="section-desc">Villa construction costs (Drones + Design Drafts needed per tier upgrade) and Car Parts / Advance Drawing requirements from Rank A through SSS. Use the "All 4 Parts" column to plan the total parts needed to reach a car rank — you must upgrade all 4 parts equally.</p>
         </div>
         <div class="callout">
           <strong>HQ Resource Conversion:</strong> All HQ resources can be converted into standard resources. Formula: Standard = HQ Quantity ÷ 0.008
