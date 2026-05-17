@@ -821,3 +821,166 @@ footer {
   border-radius: var(--radius-md);
 }
 .btn-primary:hover { background: var(--color-primary-hover); }
+
+/* === CEO CALCULATOR COMPONENTS === */
+.day-calc-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.day-calc-header {
+  background: var(--color-surface-offset);
+  padding: var(--space-3) var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.day-calc-title {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.day-calc-ref {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  margin-left: var(--space-3);
+}
+.day-calc-score {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-gold);
+  font-variant-numeric: tabular-nums;
+}
+.day-calc-items {
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.calc-item-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: var(--space-3);
+}
+.calc-item-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: default;
+}
+.calc-item-name {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+.calc-item-pts {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+.calc-number-input {
+  width: 110px;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface-offset);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.calc-number-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+.calc-item-score {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  min-width: 120px;
+}
+.grand-total-card {
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-offset) 100%);
+  border: 1px solid color-mix(in srgb, var(--color-gold) 40%, var(--color-border));
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-top: var(--space-6);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--color-gold) 12%, transparent);
+}
+.grand-total-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+.grand-total-label {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.grand-total-value {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-gold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.tool-panel { animation: fadeIn 0.18s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* === BATTLE STATS GRID === */
+.battle-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-2);
+}
+.bstat {
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+}
+.bstat-label {
+  display: block;
+  font-size: 10px;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+.bstat-val {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+/* === COLLECTION GRID (colored) === */
+.collection-purple .collection-num { color: #9c27b0; }
+[data-theme='dark'] .collection-purple .collection-num { color: #ce93d8; }
+
+/* === MOBILE ADJUSTMENTS === */
+@media (max-width: 600px) {
+  .calc-item-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  .calc-item-score { text-align: left; min-width: unset; }
+  .calc-number-input { width: 100%; text-align: left; }
+  .grand-total-inner { flex-direction: column; align-items: flex-start; }
+  .grand-total-value { font-size: var(--text-xl); }
+}

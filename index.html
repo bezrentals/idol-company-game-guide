@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apex Girls — All-in-One Guide</title>
-  <meta name="description" content="Complete resource guide for Apex Girls: CEO Planners, Girl Stats, Artist Data, Collections, Blueprints, and more." />
+  <meta name="description" content="Complete resource guide: CEO Score Estimator, Goal Planner, Day Efficiency, Girls Battle Stats, Collection Calculator, Blueprint Tracker, Abroad Shop Optimizer." />
   <link rel="stylesheet" href="./base.css" />
   <link rel="stylesheet" href="./style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,12 +15,11 @@
 
   <header>
     <div class="container header-inner">
-      <a href="#" class="logo" aria-label="Apex Girls Guide Home">
-        <!-- SVG Logo -->
+      <a href="#" class="logo" aria-label="Apex Girls Guide">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" fill="none" stroke="currentColor" stroke-width="1.5" style="stroke: var(--color-primary)"/>
+          <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="var(--color-primary)" stroke-width="1.5" fill="none"/>
           <path d="M10 16 L16 8 L22 16 L19 16 L19 24 L13 24 L13 16 Z" fill="var(--color-primary)" opacity="0.9"/>
-          <circle cx="16" cy="16" r="2" fill="var(--color-cyan)"/>
+          <circle cx="16" cy="16" r="2.5" fill="var(--color-cyan)"/>
         </svg>
         <span class="logo-text">Apex Girls Guide</span>
       </a>
@@ -28,16 +27,15 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <nav id="mainNav" role="navigation" aria-label="Main navigation">
-        <a href="#girls" class="nav-link" data-tab="girls">Girls</a>
-        <a href="#ceo" class="nav-link" data-tab="ceo">CEO Planner</a>
-        <a href="#resources" class="nav-link" data-tab="resources">Resources</a>
+        <a href="#girls"       class="nav-link" data-tab="girls">Girls</a>
+        <a href="#ceo"         class="nav-link" data-tab="ceo">CEO Planner</a>
         <a href="#collections" class="nav-link" data-tab="collections">Collections</a>
-        <a href="#blueprints" class="nav-link" data-tab="blueprints">Blueprints</a>
-        <a href="#artist" class="nav-link" data-tab="artist">Artist</a>
-        <a href="#abroad" class="nav-link" data-tab="abroad">Abroad Shop</a>
+        <a href="#blueprints"  class="nav-link" data-tab="blueprints">Blueprints</a>
+        <a href="#resources"   class="nav-link" data-tab="resources">Resources</a>
+        <a href="#abroad"      class="nav-link" data-tab="abroad">Abroad Shop</a>
       </nav>
       <div class="header-actions">
-        <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark/light mode">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle mode">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
       </div>
@@ -53,489 +51,109 @@
           Community Resource — Based on @SrCuentaOficial · Server 717
         </div>
         <h1 class="hero-title">Apex Girls<br>Complete Guide</h1>
-        <p class="hero-sub">All-in-one reference for Girls stats, CEO Event planning, resource requirements, collections, blueprints, and artist progression.</p>
+        <p class="hero-sub">Score estimators, goal planners, battle stats, collection calculators, and an abroad shop optimizer — all from your documents.</p>
         <div class="hero-cards">
-          <div class="hero-stat">
-            <div class="hero-stat-num">75+</div>
-            <div class="hero-stat-label">Girls Catalogued</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">6</div>
-            <div class="hero-stat-label">CEO Event Days</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">21</div>
-            <div class="hero-stat-label">Blueprint Tiers</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">10</div>
-            <div class="hero-stat-label">Collections</div>
-          </div>
+          <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-label">CEO Calculators</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">34</div><div class="hero-stat-label">Girls w/ Battle Stats</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">21</div><div class="hero-stat-label">Blueprint Tiers</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">10</div><div class="hero-stat-label">Collections</div></div>
         </div>
       </div>
     </section>
 
-    <!-- TAB NAVIGATION (anchor-based sections) -->
     <div class="container" style="padding-top: var(--space-8);">
 
-      <!-- ===================== GIRLS SECTION ===================== -->
+      <!-- ===================== GIRLS ===================== -->
       <section id="girls" class="page-section">
         <div class="section-header">
-          <h2 class="section-title"><span>Girls</span> — Lineup & Stats</h2>
-          <p class="section-desc">All girls sorted by base stat total (Sing + Dance). Stats at Level 140 + triple gold skills. Filter by genre, type, or rarity. Data credit: @SrCuentaOficial.</p>
+          <h2 class="section-title"><span>Girls</span> — Battle Stats</h2>
+          <p class="section-desc">Stats from the Lineup Calculator (FILTER ONLY — Do NOT sort). Includes Skill DMG, Normal DMG, Reduce Skill/Normal, Fan Cap, Rally Cap, DMG Attack, and DMG Defense. Data converted: Damage to Player = Skill DMG + Normal DMG combined.</p>
         </div>
 
         <div class="callout warning">
-          <strong>Important:</strong> FILTER ONLY — Do NOT sort. Damage to player has been converted to equal Skill Damage and Normal Damage in the lineup calculator.
+          <strong>FILTER ONLY — Do NOT sort.</strong> Damage to player has been converted to equal Skill Damage and Normal Damage. VIP bonuses are NOT included here — see the Scorecard section below.
         </div>
 
-        <!-- Filter Bar -->
-        <div class="filter-bar">
-          <input type="text" class="search-input" id="girlSearch" placeholder="Search by name…" aria-label="Search girls by name" />
+        <div class="filter-bar" style="margin-top: var(--space-5);">
+          <input type="text" class="search-input" id="girlSearch" placeholder="Search by name…" aria-label="Search girls" />
           <select class="filter-select" id="genreFilter" aria-label="Filter by genre">
             <option value="">All Genres</option>
-            <option value="R&B">R&amp;B</option>
-            <option value="POP">POP</option>
-            <option value="ROCK">ROCK</option>
-            <option value="HipHop">HipHop</option>
-            <option value="EDM">EDM</option>
+            <option>R&amp;B</option><option>POP</option><option>ROCK</option><option>HipHop</option><option>EDM</option>
           </select>
           <select class="filter-select" id="positionFilter" aria-label="Filter by position">
             <option value="">All Positions</option>
-            <option value="Center">Center</option>
-            <option value="Vocalist">Vocalist</option>
-            <option value="Dancer">Dancer</option>
+            <option>Center</option><option>Vocalist</option><option>Dancer</option>
           </select>
           <select class="filter-select" id="rarityFilter" aria-label="Filter by rarity">
             <option value="">All Rarities</option>
-            <option value="UR">UR</option>
-            <option value="SSR">SSR</option>
+            <option>UR</option><option>SSR</option>
           </select>
         </div>
 
-        <div id="girlsGrid" class="grid-3" role="list" aria-label="Girls lineup"></div>
+        <div id="girlsGrid" class="grid-3" role="list" style="margin-top: var(--space-5);"></div>
 
-        <!-- Scorecard Note -->
-        <div class="callout" style="margin-top: var(--space-6);">
-          <strong>VIP Bonuses:</strong> Basic Attack: +1% VIP19 · +3% VIP20 · +6% VIP21 | Reduce Basic Damage: +5% VIP18 · +11% VIP19 · +18% VIP20 · +26% VIP21 | Skill Bonuses: same as Basic Attack | Skill Reduction: same as Reduce Basic.
+        <!-- VIP Scorecard Reference -->
+        <div class="scorecard" style="margin-top: var(--space-8);">
+          <h3 style="font-family:var(--font-display);font-size:var(--text-base);font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--color-text);margin-bottom:var(--space-4);">VIP Scorecard Bonuses (example ROCK lineup: Antonia, Kasha, Riku, Hikari, Talia)</h3>
+          <div class="scorecard-grid">
+            <div class="scorecard-item"><span class="scorecard-label">Active Skill (all maxed)</span><span class="scorecard-value gold">9,000</span></div>
+            <div class="scorecard-item"><span class="scorecard-label">Basic Attack Bonus</span><span class="scorecard-value">186%</span></div>
+            <div class="scorecard-item"><span class="scorecard-label">Reduce Basic Damage</span><span class="scorecard-value">12%</span></div>
+            <div class="scorecard-item"><span class="scorecard-label">Skill Bonuses</span><span class="scorecard-value">120%</span></div>
+            <div class="scorecard-item"><span class="scorecard-label">Skill Reduction</span><span class="scorecard-value">12%</span></div>
+          </div>
+          <div style="margin-top:var(--space-4); display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:var(--space-3); font-size:var(--text-xs); color:var(--color-text-muted);">
+            <div><strong style="color:var(--color-text);">Basic Attack:</strong> +1% VIP19 · +3% VIP20 · +6% VIP21</div>
+            <div><strong style="color:var(--color-text);">Reduce Basic:</strong> +5% VIP18 · +11% VIP19 · +18% VIP20 · +26% VIP21</div>
+            <div><strong style="color:var(--color-text);">Skill Bonuses:</strong> +1% VIP19 · +3% VIP20 · +6% VIP21</div>
+            <div><strong style="color:var(--color-text);">Skill Reduction:</strong> +5% VIP18 · +11% VIP19 · +18% VIP20 · +26% VIP21</div>
+          </div>
         </div>
       </section>
 
       <!-- ===================== CEO PLANNER ===================== -->
       <section id="ceo" class="page-section">
         <div class="section-header">
-          <h2 class="section-title"><span>CEO Event</span> — 6-Day Planner</h2>
-          <p class="section-desc">Point values and quantity data for all CEO event types. Use these tables to plan your resource allocation. Grand totals include a note to assume 10–18% resource loss.</p>
+          <h2 class="section-title"><span>CEO Event</span> — Planner &amp; Calculators</h2>
+          <p class="section-desc">Three tools in one: Score Estimator (enter your inventory → see projected score), Goal Planner (set a target → see what you need), and Day Efficiency (which resources give most points per unit). Switch between event types below.</p>
         </div>
 
-        <div class="callout warning">
-          <strong>Note:</strong> Assume 10–18% loss — you won't use 100% of your resources in any event.
+        <div class="callout warning" style="margin-bottom: var(--space-5);">
+          <strong>Reminder:</strong> Always assume 10–18% efficiency loss — you won't convert 100% of your resources into points.
         </div>
 
-        <!-- CEO Type Selector -->
-        <div class="section-tabs" role="tablist" aria-label="CEO Event Types">
+        <!-- Event Type Tabs -->
+        <div class="section-tabs" role="tablist" aria-label="CEO Event Type">
           <button class="tab-btn active" role="tab" data-ceo="ultimate" aria-selected="true">Ultimate CEO</button>
           <button class="tab-btn" role="tab" data-ceo="svs" aria-selected="false">SvS CEO</button>
           <button class="tab-btn" role="tab" data-ceo="warmup" aria-selected="false">Warm Up CEO</button>
         </div>
 
-        <!-- ULTIMATE CEO -->
-        <div id="ceo-ultimate" class="ceo-panel">
-          <div class="grid-2">
-            <div class="day-card">
-              <div class="day-card-header">
-                <span class="day-card-title">Day 1 — Vehicle</span>
-                <span class="day-score">310,400,000 pts</span>
-              </div>
-              <div class="table-wrap">
-                <table class="data-table">
-                  <thead><tr><th>#</th><th>Item</th><th>Points</th><th>Qty</th><th>Score</th></tr></thead>
-                  <tbody>
-                    <tr><td>1</td><td>Slot Machine</td><td class="num">37,500</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>2</td><td>Car Parts</td><td class="num">500</td><td class="num">323,800</td><td class="num">161,900,000</td></tr>
-                    <tr><td>3</td><td>Promote Cars</td><td class="num">2,500</td><td class="num">40,000</td><td class="num">100,000,000</td></tr>
-                    <tr><td>4</td><td>Novice Spark Plugs</td><td class="num">80</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>5</td><td>Enhanced Spark Plugs</td><td class="num">10,000</td><td class="num">2,200</td><td class="num">22,000,000</td></tr>
-                    <tr><td>6</td><td>Elite Spark Plugs</td><td class="num">1,250,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>7</td><td>Novice Ignition Coils</td><td class="num">800</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>8</td><td>Enhanced Ignition Coils</td><td class="num">100,000</td><td class="num">265</td><td class="num">26,500,000</td></tr>
-                    <tr><td>9</td><td>Elite Ignition Coils</td><td class="num">12,500,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>10</td><td>Gold Bar</td><td class="num">1</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>11</td><td>Record Singles</td><td class="num">50,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>12</td><td>Every 24 EXP</td><td class="num">1</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>13</td><td>Concert</td><td class="num">10,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>14</td><td>Stadium</td><td class="num">40,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>15</td><td>Gold Earn in Hotel</td><td class="num">8</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr class="total"><td colspan="4">TOTAL</td><td class="num">310,400,000</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="day-card">
-              <div class="day-card-header">
-                <span class="day-card-title">Day 2 — Headquarters</span>
-                <span class="day-score">288,325,000 pts</span>
-              </div>
-              <div class="table-wrap">
-                <table class="data-table">
-                  <thead><tr><th>#</th><th>Item</th><th>Points</th><th>Qty</th><th>Score</th></tr></thead>
-                  <tbody>
-                    <tr><td>1</td><td>Slot Machine</td><td class="num">37,500</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>2</td><td>Glass</td><td class="num">500</td><td class="num">220,250</td><td class="num">110,125,000</td></tr>
-                    <tr><td>3</td><td>Basic Wood</td><td class="num">400</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>4</td><td>High-Quality Wood</td><td class="num">50,000</td><td class="num">1,794</td><td class="num">89,700,000</td></tr>
-                    <tr><td>5</td><td>Premium Wood</td><td class="num">6,250,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>6</td><td>Basic Steel Ingots</td><td class="num">4,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>7</td><td>HQ Steel Ingots</td><td class="num">500,000</td><td class="num">177</td><td class="num">88,500,000</td></tr>
-                    <tr><td>8</td><td>Premium Steel</td><td class="num">62,500,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr class="total"><td colspan="4">TOTAL</td><td class="num">288,325,000</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="day-card">
-              <div class="day-card-header">
-                <span class="day-card-title">Day 3 — Collectibles</span>
-                <span class="day-score">417,573,000 pts</span>
-              </div>
-              <div class="table-wrap">
-                <table class="data-table">
-                  <thead><tr><th>#</th><th>Item</th><th>Points</th><th>Qty</th><th>Score</th></tr></thead>
-                  <tbody>
-                    <tr><td>1</td><td>Slot Machine</td><td class="num">37,500</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>2</td><td>Purple Gems</td><td class="num">500</td><td class="num">164,738</td><td class="num">82,369,000</td></tr>
-                    <tr><td>3</td><td>Gold Gems</td><td class="num">1,000</td><td class="num">183,054</td><td class="num">183,054,000</td></tr>
-                    <tr><td>4</td><td>Basic Sandstone</td><td class="num">400</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>5</td><td>HQ Sandstone</td><td class="num">50,000</td><td class="num">1,643</td><td class="num">82,150,000</td></tr>
-                    <tr><td>6</td><td>Premium Sandstone</td><td class="num">6,250,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>7</td><td>Basic Tile</td><td class="num">4,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>8</td><td>HQ Tile</td><td class="num">500,000</td><td class="num">140</td><td class="num">70,000,000</td></tr>
-                    <tr><td>9</td><td>Premium Tile</td><td class="num">62,500,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr class="total"><td colspan="4">TOTAL</td><td class="num">417,573,000</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="day-card">
-              <div class="day-card-header">
-                <span class="day-card-title">Day 4 — Villa</span>
-                <span class="day-score">331,000,000 pts</span>
-              </div>
-              <div class="table-wrap">
-                <table class="data-table">
-                  <thead><tr><th>#</th><th>Item</th><th>Points</th><th>Qty</th><th>Score</th></tr></thead>
-                  <tbody>
-                    <tr><td>1</td><td>Slot Machine</td><td class="num">37,500</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>2</td><td>Drones</td><td class="num">500</td><td class="num">180,000</td><td class="num">90,000,000</td></tr>
-                    <tr><td>3</td><td>Design Draft</td><td class="num">5,000</td><td class="num">4,500</td><td class="num">22,500,000</td></tr>
-                    <tr><td>4</td><td>Basic CEO's Coin</td><td class="num">400</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>5</td><td>HQ CEO's Coin</td><td class="num">50,000</td><td class="num">1,970</td><td class="num">98,500,000</td></tr>
-                    <tr><td>6</td><td>Premium CEO's Coin</td><td class="num">6,250,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>7</td><td>Basic Key</td><td class="num">4,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr><td>8</td><td>HQ Key</td><td class="num">500,000</td><td class="num">240</td><td class="num">120,000,000</td></tr>
-                    <tr><td>9</td><td>Premium Key</td><td class="num">62,500,000</td><td class="num">—</td><td class="num">—</td></tr>
-                    <tr class="total"><td colspan="4">TOTAL</td><td class="num">331,000,000</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="day-card">
-              <div class="day-card-header">
-                <span class="day-card-title">Day 5 — Artist</span>
-                <span class="day-score">~0 pts (no qty data)</span>
-              </div>
-              <div class="table-wrap">
-                <table class="data-table">
-                  <thead><tr><th>#</th><th>Item</th><th>Points</th></tr></thead>
-                  <tbody>
-                    <tr><td>1</td><td>Slot Machine</td><td class="num">37,500</td></tr>
-                    <tr><td>2</td><td>Asset Coins</td><td class="num">5</td></tr>
-                    <tr><td>3</td><td>SR Promote Cards</td><td class="num">1,500</td></tr>
-                    <tr><td>4</td><td>SSR Promote Cards</td><td class="num">4,000</td></tr>
-                    <tr><td>5</td><td>SR Photos</td><td class="num">4,000</td></tr>
-                    <tr><td>6</td><td>SSR Photos</td><td class="num">25,000</td></tr>
-                    <tr><td>7</td><td>Interview</td><td class="num">60,000</td></tr>
-                    <tr><td>8</td><td>Gold Bar</td><td class="num">1</td></tr>
-                    <tr><td>9</td><td>Record Singles</td><td class="num">50,000</td></tr>
-                    <tr><td>10</td><td>Every 24 EXP</td><td class="num">1</td></tr>
-                    <tr><td>11</td><td>Concert</td><td class="num">10,000</td></tr>
-                    <tr><td>12</td><td>Stadium</td><td class="num">40,000</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="day-card">
-              <div class="day-card-header">
-                <span class="day-card-title">Day 6 — Battle</span>
-                <span class="day-score">~0 pts (no qty data)</span>
-              </div>
-              <div class="table-wrap">
-                <table class="data-table">
-                  <thead><tr><th>#</th><th>Item</th><th>Points</th></tr></thead>
-                  <tbody>
-                    <tr><td>1</td><td>Slot Machine</td><td class="num">37,500</td></tr>
-                    <tr><td>2</td><td>Acquire Fans w/ Singles</td><td class="num">12</td></tr>
-                    <tr><td>3</td><td>Defeat Enemy Fans</td><td class="num">12</td></tr>
-                    <tr><td>4</td><td>Blueprint</td><td class="num">500</td></tr>
-                    <tr><td>5</td><td>Demos</td><td class="num">60,000</td></tr>
-                    <tr><td>6</td><td>Gold Bar</td><td class="num">1</td></tr>
-                    <tr><td>7</td><td>Record Singles</td><td class="num">50,000</td></tr>
-                    <tr><td>8</td><td>Every 24 EXP</td><td class="num">1</td></tr>
-                    <tr><td>9</td><td>Concert</td><td class="num">10,000</td></tr>
-                    <tr><td>10</td><td>Stadium</td><td class="num">40,000</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div class="scorecard" style="margin-top: var(--space-6);">
-            <div class="scorecard-grid">
-              <div class="scorecard-item">
-                <span class="scorecard-label">Grand Total (Ultimate)</span>
-                <span class="scorecard-value gold">1,347,298,000</span>
-              </div>
-              <div class="scorecard-item">
-                <span class="scorecard-label">Best Scoring Day</span>
-                <span class="scorecard-value">Day 3 — Collectibles</span>
-              </div>
-              <div class="scorecard-item">
-                <span class="scorecard-label">Days with Qty Data</span>
-                <span class="scorecard-value">Days 1–4</span>
-              </div>
-              <div class="scorecard-item">
-                <span class="scorecard-label">Loss Buffer</span>
-                <span class="scorecard-value">10–18%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SvS CEO -->
-        <div id="ceo-svs" class="ceo-panel" style="display:none;">
-          <div class="scorecard">
-            <div class="scorecard-grid">
-              <div class="scorecard-item">
-                <span class="scorecard-label">Grand Total (SvS CEO)</span>
-                <span class="scorecard-value gold">1,867,539,417</span>
-              </div>
-              <div class="scorecard-item">
-                <span class="scorecard-label">Strongest Day</span>
-                <span class="scorecard-value">Day 5 — Artist (1.21B)</span>
-              </div>
-            </div>
-          </div>
-          <div class="grid-2" style="margin-top: var(--space-4);">
-            <div class="day-card">
-              <div class="day-card-header"><span class="day-card-title">Day 2 — HQ</span><span class="day-score">38,021,000</span></div>
-              <div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Pts</th><th>Qty</th><th>Score</th></tr></thead><tbody>
-                <tr><td>Glass</td><td class="num">500</td><td class="num">30,650</td><td class="num">15,325,000</td></tr>
-                <tr><td>Basic Wood</td><td class="num">400</td><td class="num">11,140</td><td class="num">4,456,000</td></tr>
-                <tr><td>Basic Steel</td><td class="num">4,000</td><td class="num">4,560</td><td class="num">18,240,000</td></tr>
-                <tr class="total"><td colspan="3">TOTAL</td><td class="num">38,021,000</td></tr>
-              </tbody></table></div>
-            </div>
-            <div class="day-card">
-              <div class="day-card-header"><span class="day-card-title">Day 3 — Collectibles</span><span class="day-score">272,185,000</span></div>
-              <div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Pts</th><th>Qty</th><th>Score</th></tr></thead><tbody>
-                <tr><td>Purple Gems</td><td class="num">500</td><td class="num">3,250</td><td class="num">1,625,000</td></tr>
-                <tr><td>Gold Gems</td><td class="num">1,000</td><td class="num">11,010</td><td class="num">11,010,000</td></tr>
-                <tr><td>Basic Sandstone</td><td class="num">2,000</td><td class="num">13,950</td><td class="num">27,900,000</td></tr>
-                <tr><td>HQ Sandstone</td><td class="num">250,000</td><td class="num">45</td><td class="num">11,250,000</td></tr>
-                <tr><td>Basic Tile</td><td class="num">20,000</td><td class="num">10,270</td><td class="num">205,400,000</td></tr>
-                <tr><td>HQ Tile</td><td class="num">3,000,000</td><td class="num">5</td><td class="num">15,000,000</td></tr>
-                <tr class="total"><td colspan="3">TOTAL</td><td class="num">272,185,000</td></tr>
-              </tbody></table></div>
-            </div>
-            <div class="day-card">
-              <div class="day-card-header"><span class="day-card-title">Day 4 — Villa</span><span class="day-score">265,283,000</span></div>
-              <div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Pts</th><th>Qty</th><th>Score</th></tr></thead><tbody>
-                <tr><td>Drones</td><td class="num">500</td><td class="num">65,330</td><td class="num">32,665,000</td></tr>
-                <tr><td>Design Draft</td><td class="num">5,000</td><td class="num">20,390</td><td class="num">101,950,000</td></tr>
-                <tr><td>Basic CEO's Coin</td><td class="num">400</td><td class="num">39,220</td><td class="num">15,688,000</td></tr>
-                <tr><td>Basic Key</td><td class="num">4,000</td><td class="num">20,620</td><td class="num">82,480,000</td></tr>
-                <tr><td>HQ Key</td><td class="num">500,000</td><td class="num">65</td><td class="num">32,500,000</td></tr>
-                <tr class="total"><td colspan="3">TOTAL</td><td class="num">265,283,000</td></tr>
-              </tbody></table></div>
-            </div>
-            <div class="day-card">
-              <div class="day-card-header"><span class="day-card-title">Day 5 — Artist</span><span class="day-score">1,212,370,417</span></div>
-              <div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Pts</th><th>Qty</th><th>Score</th></tr></thead><tbody>
-                <tr><td>Asset Coins</td><td class="num">5</td><td class="num">3,330,000</td><td class="num">16,650,000</td></tr>
-                <tr><td>SSR Promote Cards</td><td class="num">4,000</td><td class="num">63,930</td><td class="num">255,720,000</td></tr>
-                <tr><td>SR Photos</td><td class="num">4,000</td><td class="num">8,990</td><td class="num">35,960,000</td></tr>
-                <tr><td>SSR Photos</td><td class="num">25,000</td><td class="num">32,350</td><td class="num">808,750,000</td></tr>
-                <tr><td>Interview</td><td class="num">60,000</td><td class="num">1,230</td><td class="num">73,800,000</td></tr>
-                <tr><td>Every 24 EXP</td><td class="num">1</td><td class="num">515,770,000</td><td class="num">21,490,417</td></tr>
-                <tr class="total"><td colspan="3">TOTAL</td><td class="num">1,212,370,417</td></tr>
-              </tbody></table></div>
-            </div>
-            <div class="day-card">
-              <div class="day-card-header"><span class="day-card-title">Day 6 — Battle</span><span class="day-score">79,680,000</span></div>
-              <div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Pts</th><th>Qty</th><th>Score</th></tr></thead><tbody>
-                <tr><td>Acquire Fans w/ Singles</td><td class="num">12</td><td class="num">100,000</td><td class="num">1,200,000</td></tr>
-                <tr><td>Defeat Enemy Fans</td><td class="num">12</td><td class="num">2,500,000</td><td class="num">30,000,000</td></tr>
-                <tr><td>Blueprint</td><td class="num">500</td><td class="num">75,000</td><td class="num">37,500,000</td></tr>
-                <tr><td>Demos</td><td class="num">60,000</td><td class="num">183</td><td class="num">10,980,000</td></tr>
-                <tr class="total"><td colspan="3">TOTAL</td><td class="num">79,680,000</td></tr>
-              </tbody></table></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Warm Up CEO -->
-        <div id="ceo-warmup" class="ceo-panel" style="display:none;">
-          <div class="scorecard">
-            <div class="scorecard-grid">
-              <div class="scorecard-item">
-                <span class="scorecard-label">Grand Total (Warm Up)</span>
-                <span class="scorecard-value gold">2,967,731,300</span>
-              </div>
-              <div class="scorecard-item">
-                <span class="scorecard-label">Days 1 &amp; 2 Combined</span>
-                <span class="scorecard-value">520,773,960</span>
-              </div>
-              <div class="scorecard-item">
-                <span class="scorecard-label">Days 3 &amp; 4 Combined</span>
-                <span class="scorecard-value">764,038,000</span>
-              </div>
-              <div class="scorecard-item">
-                <span class="scorecard-label">Days 5 &amp; 6 Combined</span>
-                <span class="scorecard-value">1,682,919,340</span>
-              </div>
-            </div>
-          </div>
-          <div class="callout" style="margin-top: var(--space-4);">
-            Warm Up CEO uses paired days: Development (Days 1–2), Innovation (Days 3–4), Promotion (Days 5–6). SSR photo scoring dominates Day 5–6 at 625M.
-          </div>
-          <div class="grid-2" style="margin-top: var(--space-4);">
-            <div class="day-card">
-              <div class="day-card-header"><span class="day-card-title">Days 1 &amp; 2 — Development</span><span class="day-score">520,773,960</span></div>
-              <div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Pts</th><th>Qty</th><th>Score</th></tr></thead><tbody>
-                <tr><td>Car Parts</td><td class="num">500</td><td class="num">200,000</td><td class="num">100,000,000</td></tr>
-                <tr><td>Promote Cars</td><td class="num">2,500</td><td class="num">37,836</td><td class="num">94,590,000</td></tr>
-                <tr><td>Novice Spark Plugs</td><td class="num">80</td><td class="num">288,012</td><td class="num">23,040,960</td></tr>
-                <tr><td>Enhanced Spark Plugs</td><td class="num">10,000</td><td class="num">1,804</td><td class="num">18,040,000</td></tr>
-                <tr><td>Novice Ignition Coils</td><td class="num">800</td><td class="num">30,230</td><td class="num">24,184,000</td></tr>
-                <tr><td>Enhanced Ignition Coils</td><td class="num">250,000</td><td class="num">308</td><td class="num">77,000,000</td></tr>
-                <tr><td>Glass</td><td class="num">500</td><td class="num">76,742</td><td class="num">38,371,000</td></tr>
-                <tr><td>Basic Wood</td><td class="num">400</td><td class="num">94,100</td><td class="num">37,640,000</td></tr>
-                <tr><td>HQ Wood</td><td class="num">50,000</td><td class="num">560</td><td class="num">28,000,000</td></tr>
-                <tr><td>Basic Steel Ingots</td><td class="num">4,000</td><td class="num">16,852</td><td class="num">67,408,000</td></tr>
-                <tr><td>HQ Steel Ingots</td><td class="num">500,000</td><td class="num">25</td><td class="num">12,500,000</td></tr>
-                <tr class="total"><td colspan="3">TOTAL</td><td class="num">520,773,960</td></tr>
-              </tbody></table></div>
-            </div>
-            <div class="day-card">
-              <div class="day-card-header"><span class="day-card-title">Days 3 &amp; 4 — Innovation</span><span class="day-score">764,038,000</span></div>
-              <div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Pts</th><th>Qty</th><th>Score</th></tr></thead><tbody>
-                <tr><td>Purple Gems</td><td class="num">500</td><td class="num">250,000</td><td class="num">125,000,000</td></tr>
-                <tr><td>Gold Gems</td><td class="num">1,000</td><td class="num">150,000</td><td class="num">150,000,000</td></tr>
-                <tr><td>Basic Sandstone</td><td class="num">400</td><td class="num">168,000</td><td class="num">67,200,000</td></tr>
-                <tr><td>HQ Sandstone</td><td class="num">50,000</td><td class="num">100</td><td class="num">5,000,000</td></tr>
-                <tr><td>Basic Tile</td><td class="num">4,000</td><td class="num">23,000</td><td class="num">92,000,000</td></tr>
-                <tr><td>HQ Tile</td><td class="num">500,000</td><td class="num">5</td><td class="num">2,500,000</td></tr>
-                <tr><td>Drones</td><td class="num">500</td><td class="num">250,000</td><td class="num">125,000,000</td></tr>
-                <tr><td>Design Draft</td><td class="num">5,000</td><td class="num">17,688</td><td class="num">88,440,000</td></tr>
-                <tr><td>Basic CEO's Coin</td><td class="num">400</td><td class="num">132,065</td><td class="num">52,826,000</td></tr>
-                <tr><td>Basic Key</td><td class="num">4,000</td><td class="num">14,018</td><td class="num">56,072,000</td></tr>
-                <tr class="total"><td colspan="3">TOTAL</td><td class="num">764,038,000</td></tr>
-              </tbody></table></div>
-            </div>
-            <div class="day-card">
-              <div class="day-card-header"><span class="day-card-title">Days 5 &amp; 6 — Promotion</span><span class="day-score">1,682,919,340</span></div>
-              <div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Pts</th><th>Qty</th><th>Score</th></tr></thead><tbody>
-                <tr><td>Asset Coins</td><td class="num">5</td><td class="num">16,083,868</td><td class="num">80,419,340</td></tr>
-                <tr><td>SR Promote Cards</td><td class="num">1,500</td><td class="num">25,000</td><td class="num">37,500,000</td></tr>
-                <tr><td>SSR Promote Cards</td><td class="num">4,000</td><td class="num">125,000</td><td class="num">500,000,000</td></tr>
-                <tr><td>SR Photos</td><td class="num">4,000</td><td class="num">20,000</td><td class="num">80,000,000</td></tr>
-                <tr><td>SSR Photos</td><td class="num">25,000</td><td class="num">25,000</td><td class="num">625,000,000</td></tr>
-                <tr><td>Interview</td><td class="num">60,000</td><td class="num">3,000</td><td class="num">180,000,000</td></tr>
-                <tr><td>Demos</td><td class="num">60,000</td><td class="num">3,000</td><td class="num">180,000,000</td></tr>
-                <tr class="total"><td colspan="3">TOTAL</td><td class="num">1,682,919,340</td></tr>
-              </tbody></table></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===================== RESOURCES ===================== -->
-      <section id="resources" class="page-section">
-        <div class="section-header">
-          <h2 class="section-title"><span>Resources</span> — HQ Glass &amp; Villa</h2>
-          <p class="section-desc">Glass required per HQ level, Villa construction (Drones &amp; Design Drafts), and Villa Homemaking costs.</p>
-        </div>
-
-        <!-- Villa Table -->
-        <h3 style="font-family: var(--font-display); font-size: var(--text-base); font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--color-text); margin-bottom: var(--space-3); margin-top: var(--space-6);">Villa Construction Costs</h3>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Villa</th>
-                <th>Hammers</th>
-                <th>Gold Hammers</th>
-                <th>Drones per Room</th>
-                <th>Drones (All 4)</th>
-                <th>Design Drafts</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Classic Villa</td><td class="num">1</td><td class="num">0</td><td class="num">250</td><td class="num">1,000</td><td class="num">200</td></tr>
-              <tr><td>Elite Villa</td><td class="num">1</td><td class="num">0</td><td class="num">1,000</td><td class="num">4,000</td><td class="num">400</td></tr>
-              <tr><td>Prestige Villa</td><td class="num">2</td><td class="num">0–1</td><td class="num">5,000</td><td class="num">20,000</td><td class="num">600</td></tr>
-              <tr><td>Luxury Villa</td><td class="num">4</td><td class="num">0–3</td><td class="num">10,000</td><td class="num">40,000</td><td class="num">1,000</td></tr>
-              <tr><td>Summit Villa</td><td class="num">10</td><td class="num">0–9</td><td class="num">15,000</td><td class="num">60,000</td><td class="num">1,500</td></tr>
-              <tr><td>Iconic Villa</td><td class="num">10</td><td class="num">0–9</td><td class="num">30,000</td><td class="num">120,000</td><td class="num">2,000</td></tr>
-              <tr><td>Urban Heights</td><td class="num">10</td><td class="num">0–10</td><td class="num">60,000</td><td class="num">240,000</td><td class="num">5,000</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Car Vehicle Upgrade -->
-        <h3 style="font-family: var(--font-display); font-size: var(--text-base); font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--color-text); margin-bottom: var(--space-3); margin-top: var(--space-8);">Car Parts &amp; Advance Drawings</h3>
-        <div class="callout">
-          Car upgrades have 5 upgrade phases per rank. Table shows total parts needed to reach each rank/star level, plus drawings needed for Advance Drawings separately.
-        </div>
-        <div class="table-wrap" style="margin-top: var(--space-4);">
-          <table class="data-table">
-            <thead>
-              <tr><th>Rank</th><th>Stars</th><th>Parts Total (per part)</th><th>All 4 Parts</th><th>Advance Drawings</th></tr>
-            </thead>
-            <tbody id="carPartsTable"></tbody>
-          </table>
-        </div>
+        <!-- Calculator container — populated by JS -->
+        <div id="ceoCalcContainer"></div>
       </section>
 
       <!-- ===================== COLLECTIONS ===================== -->
       <section id="collections" class="page-section">
         <div class="section-header">
-          <h2 class="section-title"><span>Collections</span> — Gems Required</h2>
-          <p class="section-desc">Total gems needed per collection theme (Purple and Yellow). All 10 collections summarized with running totals.</p>
+          <h2 class="section-title"><span>Collections</span> — Gems &amp; Calculator</h2>
+          <p class="section-desc">Total gems per collection theme, gem requirements per level, and a calculator to find exactly how many gems you need between any two levels.</p>
         </div>
 
         <div class="scorecard" style="margin-bottom: var(--space-6);">
           <div class="scorecard-grid">
-            <div class="scorecard-item">
-              <span class="scorecard-label">Total Gems (All)</span>
-              <span class="scorecard-value gold">1,376,240</span>
-            </div>
-            <div class="scorecard-item">
-              <span class="scorecard-label">Required Purple</span>
-              <span class="scorecard-value" style="color: var(--color-purple, #9c27b0);">672,318</span>
-            </div>
-            <div class="scorecard-item">
-              <span class="scorecard-label">Required Yellow</span>
-              <span class="scorecard-value gold">703,922</span>
-            </div>
-            <div class="scorecard-item">
-              <span class="scorecard-label">Existing Black Gems*</span>
-              <span class="scorecard-value">1,860</span>
-            </div>
+            <div class="scorecard-item"><span class="scorecard-label">Total Gems (All 10)</span><span class="scorecard-value gold">1,376,240</span></div>
+            <div class="scorecard-item"><span class="scorecard-label">Required Purple</span><span class="scorecard-value" style="color:#9c27b0;">672,318</span></div>
+            <div class="scorecard-item"><span class="scorecard-label">Required Yellow</span><span class="scorecard-value gold">703,922</span></div>
+            <div class="scorecard-item"><span class="scorecard-label">Purple to Acquire</span><span class="scorecard-value">669,038</span></div>
+            <div class="scorecard-item"><span class="scorecard-label">Yellow to Acquire</span><span class="scorecard-value">691,712</span></div>
+            <div class="scorecard-item"><span class="scorecard-label">Existing Black*</span><span class="scorecard-value">1,860</span></div>
           </div>
-          <p style="font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-3);">*Black gems are tough to account for but are useful — don't forget them.</p>
+          <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-top:var(--space-3);">*Black gems are tough to account for but useful — don't forget them.</p>
         </div>
 
-        <div class="collection-grid">
+        <!-- Per-collection breakdown -->
+        <div class="collection-grid" style="margin-bottom: var(--space-8);">
           <div class="collection-item collection-purple"><span class="collection-name">Mediterranean Purple</span><span class="collection-num">133,639</span></div>
           <div class="collection-item collection-yellow"><span class="collection-name">Mediterranean Yellow</span><span class="collection-num">141,609</span></div>
           <div class="collection-item collection-purple"><span class="collection-name">Scandinavia Purple</span><span class="collection-num">133,639</span></div>
@@ -548,49 +166,38 @@
           <div class="collection-item collection-yellow"><span class="collection-name">Americas Yellow</span><span class="collection-num">141,609</span></div>
         </div>
 
-        <!-- Gems per level table -->
-        <h3 style="font-family: var(--font-display); font-size: var(--text-base); font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--color-text); margin-bottom: var(--space-3); margin-top: var(--space-8);">Gems per Collection Level (Summary)</h3>
+        <!-- Calculator + range table -->
         <div class="grid-2">
           <div class="card">
-            <div class="card-title">Range Totals</div>
+            <div class="card-title">Gem Calculator</div>
+            <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);">Enter your current level and target level, plus how many collections you're upgrading.</p>
+            <div class="calc-row"><label class="calc-label" for="gemFromLevel">From Level</label><input type="number" class="calc-input" id="gemFromLevel" min="1" max="49" value="1" /></div>
+            <div class="calc-row"><label class="calc-label" for="gemToLevel">To Level</label><input type="number" class="calc-input" id="gemToLevel" min="2" max="50" value="50" /></div>
+            <div class="calc-row"><label class="calc-label" for="gemCollections">Collections</label><input type="number" class="calc-input" id="gemCollections" min="1" max="10" value="1" /></div>
+            <button class="btn-primary" id="calcGemsBtn" style="margin-top:var(--space-4);">Calculate Gems Needed</button>
+            <div id="gemResult" style="margin-top:var(--space-5);"></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Level Range Totals</div>
             <div class="table-wrap">
               <table class="data-table">
-                <thead><tr><th>Range</th><th>Gems</th></tr></thead>
+                <thead><tr><th>Range</th><th>Gems per Collection</th></tr></thead>
                 <tbody>
-                  <tr><td>Level 1–5</td><td class="num">147</td></tr>
-                  <tr><td>Level 6–10</td><td class="num">1,077</td></tr>
-                  <tr><td>Level 11–15</td><td class="num">2,976</td></tr>
-                  <tr><td>Level 16–20</td><td class="num">5,954</td></tr>
-                  <tr><td>Level 21–25</td><td class="num">10,094</td></tr>
-                  <tr><td>Level 26–30</td><td class="num">15,459</td></tr>
-                  <tr><td><strong>1–30 Total</strong></td><td class="num"><strong>35,707</strong></td></tr>
-                  <tr><td>Level 31–35</td><td class="num">22,098</td></tr>
-                  <tr><td>Level 36–40</td><td class="num">30,057</td></tr>
-                  <tr><td>Level 41–45</td><td class="num">39,372</td></tr>
-                  <tr><td>Level 46–50</td><td class="num">50,082</td></tr>
-                  <tr><td><strong>31–50 Total</strong></td><td class="num"><strong>141,609</strong></td></tr>
+                  <tr><td>1–5</td><td class="num">147</td></tr>
+                  <tr><td>6–10</td><td class="num">1,077</td></tr>
+                  <tr><td>11–15</td><td class="num">2,976</td></tr>
+                  <tr><td>16–20</td><td class="num">5,954</td></tr>
+                  <tr><td>21–25</td><td class="num">10,094</td></tr>
+                  <tr><td>26–30</td><td class="num">15,459</td></tr>
+                  <tr class="total"><td>1–30 Total</td><td class="num">35,707</td></tr>
+                  <tr><td>31–35</td><td class="num">22,098</td></tr>
+                  <tr><td>36–40</td><td class="num">30,057</td></tr>
+                  <tr><td>41–45</td><td class="num">39,372</td></tr>
+                  <tr><td>46–50</td><td class="num">50,082</td></tr>
+                  <tr class="total"><td>31–50 Total</td><td class="num">141,609</td></tr>
                   <tr class="total"><td>1–50 Grand Total</td><td class="num">177,316</td></tr>
                 </tbody>
               </table>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-title">Calculator — Collection Gems</div>
-            <div class="calc-section" style="padding: 0; background: none; border: none; border-radius: 0;">
-              <div class="calc-row">
-                <label class="calc-label" for="gemFromLevel">From Level</label>
-                <input type="number" class="calc-input" id="gemFromLevel" min="1" max="49" value="1" />
-              </div>
-              <div class="calc-row">
-                <label class="calc-label" for="gemToLevel">To Level</label>
-                <input type="number" class="calc-input" id="gemToLevel" min="2" max="50" value="50" />
-              </div>
-              <div class="calc-row">
-                <label class="calc-label" for="gemCollections">Collections</label>
-                <input type="number" class="calc-input" id="gemCollections" min="1" max="10" value="1" />
-              </div>
-              <button class="btn-primary" id="calcGemsBtn" style="margin-top: var(--space-3);">Calculate</button>
-              <div id="gemResult" style="margin-top: var(--space-4); font-family: var(--font-display); font-size: var(--text-lg); font-weight:700; color: var(--color-primary);"></div>
             </div>
           </div>
         </div>
@@ -600,151 +207,32 @@
       <section id="blueprints" class="page-section">
         <div class="section-header">
           <h2 class="section-title"><span>Blueprints</span> — Tier Requirements</h2>
-          <p class="section-desc">Blueprints needed per tier (Tiers 1–21) plus Master Blueprint data for Group Battle and Expansion.</p>
+          <p class="section-desc">BPs required per tier and cumulative running total. Tiers 1–9 cost data is incomplete in source documents (marked —). Master Blueprint Group Battle data follows.</p>
         </div>
-
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>BP Level</th>
-                <th>Next Level</th>
-                <th>Required to Complete</th>
-                <th>Cumulative</th>
-              </tr>
-            </thead>
-            <tbody id="bpTable"></tbody>
-          </table>
-        </div>
-
-        <h3 style="font-family: var(--font-display); font-size: var(--text-base); font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--color-text); margin-bottom: var(--space-3); margin-top: var(--space-8);">Master Blueprints — Group Battle</h3>
-        <div class="callout">
-          Master Blueprints are separate from regular blueprints. Group Battle and Expansion tabs are listed. Only Group Battle is shown below (complete data). Expansion has 11 of 16 tiers with complete data.
-        </div>
-        <div class="table-wrap" style="margin-top: var(--space-4);">
-          <table class="data-table">
-            <thead>
-              <tr><th>Level</th><th>Hit Song</th><th>Artist Training</th><th>Gold Bar</th><th>Adv Supply</th><th>Concert Promo</th><th>Stadium Live</th><th>Group Strat</th><th>Talent Scout</th><th>Ace Prod.</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>0</td><td class="num">50</td><td class="num">50</td><td class="num">50</td><td class="num">100</td><td class="num">100</td><td class="num">100</td><td class="num">200</td><td class="num">200</td><td class="num">200</td></tr>
-              <tr><td>1</td><td class="num">50</td><td class="num">50</td><td class="num">50</td><td class="num">—</td><td class="num">100</td><td class="num">100</td><td class="num">200</td><td class="num">200</td><td class="num">200</td></tr>
-              <tr><td>2</td><td class="num">50</td><td class="num">50</td><td class="num">50</td><td class="num">—</td><td class="num">100</td><td class="num">100</td><td class="num">300</td><td class="num">300</td><td class="num">300</td></tr>
-              <tr><td>3</td><td class="num">50</td><td class="num">50</td><td class="num">50</td><td class="num">—</td><td class="num">200</td><td class="num">200</td><td class="num">300</td><td class="num">300</td><td class="num">300</td></tr>
-              <tr><td>4</td><td class="num">50</td><td class="num">50</td><td class="num">50</td><td class="num">—</td><td class="num">200</td><td class="num">200</td><td class="num">500</td><td class="num">450</td><td class="num">450</td></tr>
-              <tr><td>5</td><td class="num">100</td><td class="num">100</td><td class="num">100</td><td class="num">—</td><td class="num">200</td><td class="num">200</td><td class="num">500</td><td class="num">500</td><td class="num">500</td></tr>
-              <tr><td>6</td><td class="num">100</td><td class="num">100</td><td class="num">100</td><td class="num">—</td><td class="num">350</td><td class="num">350</td><td class="num">500</td><td class="num">750</td><td class="num">750</td></tr>
-              <tr><td>7</td><td class="num">200</td><td class="num">200</td><td class="num">200</td><td class="num">—</td><td class="num">350</td><td class="num">350</td><td class="num">750</td><td class="num">1,000</td><td class="num">1,000</td></tr>
-              <tr><td>8</td><td class="num">200</td><td class="num">200</td><td class="num">200</td><td class="num">—</td><td class="num">500</td><td class="num">500</td><td class="num">750</td><td class="num">1,200</td><td class="num">1,200</td></tr>
-              <tr><td>9</td><td class="num">350</td><td class="num">350</td><td class="num">350</td><td class="num">—</td><td class="num">500</td><td class="num">500</td><td class="num">1,000</td><td class="num">1,500</td><td class="num">1,500</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- ===================== ARTIST SKILL ===================== -->
-      <section id="artist" class="page-section">
-        <div class="section-header">
-          <h2 class="section-title"><span>Artist</span> — Skills &amp; Photo Tracker</h2>
-          <p class="section-desc">Photo requirements for skill upgrades, priority tiers, and artist role breakdown. All data compiled from community spreadsheet.</p>
-        </div>
-
-        <div class="callout warning">
-          <strong>Priority Order:</strong> 1 = Ruby · 2A = Daphne · 2B = Ariadne · 2C = Ayaka · Long Term = Most others · Done = Already maxed
-        </div>
-
-        <div class="filter-bar">
-          <input type="text" class="search-input" id="artistSearch" placeholder="Search artist…" />
-          <select class="filter-select" id="priorityFilter">
-            <option value="">All Priorities</option>
-            <option value="Done">Done</option>
-            <option value="1">Priority 1</option>
-            <option value="2A">Priority 2A</option>
-            <option value="2B">Priority 2B</option>
-            <option value="2C">Priority 2C</option>
-            <option value="Long Term Project">Long Term</option>
-          </select>
-        </div>
-
-        <div id="artistGrid" class="grid-3" role="list"></div>
-
-        <!-- Totals -->
-        <div class="scorecard" style="margin-top: var(--space-6);">
-          <div class="scorecard-grid">
-            <div class="scorecard-item">
-              <span class="scorecard-label">Total Photos Needed</span>
-              <span class="scorecard-value gold">81,253</span>
-            </div>
-            <div class="scorecard-item">
-              <span class="scorecard-label">Universal Photos Available</span>
-              <span class="scorecard-value">1,248</span>
-            </div>
-            <div class="scorecard-item">
-              <span class="scorecard-label">Priority 1 Remaining</span>
-              <span class="scorecard-value" style="color: var(--color-warning);">~4,200</span>
-            </div>
-            <div class="scorecard-item">
-              <span class="scorecard-label">Priority 2 Remaining</span>
-              <span class="scorecard-value">~6,902</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===================== ABROAD SHOP ===================== -->
-      <section id="abroad" class="page-section">
-        <div class="section-header">
-          <h2 class="section-title"><span>Abroad Shop</span> — Coin Calculator</h2>
-          <p class="section-desc">Items available in the Abroad Shop, their coin costs, and a calculator to see what you can buy.</p>
-        </div>
-
         <div class="grid-2">
-          <div>
-            <div class="calc-section">
-              <h3 style="font-family: var(--font-display); font-weight:700; letter-spacing:0.05em; text-transform:uppercase; margin-bottom: var(--space-4); color: var(--color-text);">Quick Calculator</h3>
-              <div class="calc-row">
-                <label class="calc-label" for="abroadCoins">Available Abroad Coins</label>
-                <input type="number" class="calc-input" id="abroadCoins" value="193300" style="width:160px;" />
-              </div>
-              <p id="abroadStatus" style="font-family: var(--font-display); font-size: var(--text-base); font-weight:700; color: var(--color-success); margin-top: var(--space-3);"></p>
-              <div id="abroadItems" style="margin-top: var(--space-4);"></div>
-            </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>BP Tier</th><th>Next</th><th>Required</th><th>Cumulative</th></tr></thead>
+              <tbody id="bpTable"></tbody>
+            </table>
           </div>
           <div>
-            <div class="card">
-              <div class="card-title">Abroad Shop Items</div>
+            <div class="card" style="margin-bottom:var(--space-4);">
+              <div class="card-title">Master BPs — Group Battle (Levels 0–9)</div>
               <div class="table-wrap">
                 <table class="data-table">
-                  <thead><tr><th>Item</th><th>Qty</th><th>Cost/Each</th><th>Total</th></tr></thead>
+                  <thead><tr><th>Lvl</th><th>Hit Song</th><th>Artist Train</th><th>Gold Bar</th><th>Concert Promo</th><th>Stadium</th><th>Group Strat</th></tr></thead>
                   <tbody>
-                    <tr><td>Girl</td><td class="num">1</td><td class="num">10,000</td><td class="num">10,000</td></tr>
-                    <tr><td>Girl Photos</td><td class="num">6,000</td><td class="num">100</td><td class="num">600,000</td></tr>
-                    <tr><td>SSR Photos</td><td class="num">500</td><td class="num">100</td><td class="num">50,000</td></tr>
-                    <tr><td>Purple Car</td><td class="num">1</td><td class="num">10,000</td><td class="num">10,000</td></tr>
-                    <tr><td>Purple House</td><td class="num">1</td><td class="num">20,000</td><td class="num">20,000</td></tr>
-                    <tr><td>Spark Plugs</td><td class="num">5,000</td><td class="num">12</td><td class="num">60,000</td></tr>
-                    <tr><td>Ignition Coils</td><td class="num">500</td><td class="num">120</td><td class="num">60,000</td></tr>
-                    <tr><td>Wood</td><td class="num">5,000</td><td class="num">12</td><td class="num">60,000</td></tr>
-                    <tr><td>Steel</td><td class="num">500</td><td class="num">120</td><td class="num">60,000</td></tr>
-                    <tr><td>Drones</td><td class="num">10,000</td><td class="num">3</td><td class="num">30,000</td></tr>
-                    <tr><td>Villa Drafts</td><td class="num">2,000</td><td class="num">30</td><td class="num">60,000</td></tr>
-                    <tr><td>CEO Coins</td><td class="num">5,000</td><td class="num">12</td><td class="num">60,000</td></tr>
-                    <tr><td>Keys</td><td class="num">500</td><td class="num">120</td><td class="num">60,000</td></tr>
-                    <tr><td>Interviews</td><td class="num">10</td><td class="num">300</td><td class="num">3,000</td></tr>
-                    <tr><td>Demos</td><td class="num">10</td><td class="num">300</td><td class="num">3,000</td></tr>
-                    <tr><td>Building Cards</td><td class="num">1,000</td><td class="num">25</td><td class="num">25,000</td></tr>
-                    <tr><td>Asset Coins</td><td class="num">1,000</td><td class="num">25</td><td class="num">25,000</td></tr>
-                    <tr><td>Blueprints</td><td class="num">10,000</td><td class="num">3</td><td class="num">30,000</td></tr>
-                    <tr><td>Car Parts</td><td class="num">10,000</td><td class="num">3</td><td class="num">30,000</td></tr>
-                    <tr><td>Vehicle Drawings</td><td class="num">2,000</td><td class="num">15</td><td class="num">30,000</td></tr>
-                    <tr><td>Glass</td><td class="num">20,000</td><td class="num">3</td><td class="num">60,000</td></tr>
-                    <tr><td>SR Promo Cards</td><td class="num">4,000</td><td class="num">9</td><td class="num">36,000</td></tr>
-                    <tr><td>SSR Promo Cards</td><td class="num">2,000</td><td class="num">24</td><td class="num">48,000</td></tr>
-                    <tr><td>Yellow Gems</td><td class="num">5,000</td><td class="num">6</td><td class="num">30,000</td></tr>
-                    <tr><td>Purple Gems</td><td class="num">10,000</td><td class="num">3</td><td class="num">30,000</td></tr>
-                    <tr><td>Promo Manuals</td><td class="num">200</td><td class="num">750</td><td class="num">150,000</td></tr>
-                    <tr><td>Yellow House</td><td class="num">1</td><td class="num">50,000</td><td class="num">50,000</td></tr>
-                    <tr><td>Yellow Car</td><td class="num">1</td><td class="num">25,000</td><td class="num">25,000</td></tr>
+                    <tr><td>0</td><td class="num">50</td><td class="num">50</td><td class="num">50</td><td class="num">100</td><td class="num">100</td><td class="num">200</td></tr>
+                    <tr><td>1</td><td class="num">50</td><td class="num">50</td><td class="num">50</td><td class="num">100</td><td class="num">100</td><td class="num">200</td></tr>
+                    <tr><td>2</td><td class="num">50</td><td class="num">50</td><td class="num">50</td><td class="num">100</td><td class="num">100</td><td class="num">300</td></tr>
+                    <tr><td>3</td><td class="num">50</td><td class="num">50</td><td class="num">50</td><td class="num">200</td><td class="num">200</td><td class="num">300</td></tr>
+                    <tr><td>4</td><td class="num">50</td><td class="num">50</td><td class="num">50</td><td class="num">200</td><td class="num">200</td><td class="num">500</td></tr>
+                    <tr><td>5</td><td class="num">100</td><td class="num">100</td><td class="num">100</td><td class="num">200</td><td class="num">200</td><td class="num">500</td></tr>
+                    <tr><td>6</td><td class="num">100</td><td class="num">100</td><td class="num">100</td><td class="num">350</td><td class="num">350</td><td class="num">500</td></tr>
+                    <tr><td>7</td><td class="num">200</td><td class="num">200</td><td class="num">200</td><td class="num">350</td><td class="num">350</td><td class="num">750</td></tr>
+                    <tr><td>8</td><td class="num">200</td><td class="num">200</td><td class="num">200</td><td class="num">500</td><td class="num">500</td><td class="num">750</td></tr>
+                    <tr><td>9</td><td class="num">350</td><td class="num">350</td><td class="num">350</td><td class="num">500</td><td class="num">500</td><td class="num">1,000</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -753,13 +241,86 @@
         </div>
       </section>
 
-    </div><!-- end .container -->
+      <!-- ===================== RESOURCES ===================== -->
+      <section id="resources" class="page-section">
+        <div class="section-header">
+          <h2 class="section-title"><span>Resources</span> — Villa &amp; Car Parts</h2>
+          <p class="section-desc">Villa construction costs (Drones + Design Drafts per tier), and Car Parts / Advance Drawing requirements from Rank A through SSS.</p>
+        </div>
+        <div class="callout">
+          <strong>HQ Resource Conversion:</strong> All HQ resources can be converted into standard resources. Formula: Standard = HQ Quantity ÷ 0.008
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:var(--text-base);font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--color-text);margin:var(--space-6) 0 var(--space-3);">Villa Construction</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Villa Tier</th><th>Hammers</th><th>Gold Hammers</th><th>Drones per Room</th><th>Drones (All 4)</th><th>Design Drafts/Upgrade</th></tr></thead>
+            <tbody>
+              <tr><td>Classic Villa</td><td class="num">1</td><td class="num">0</td><td class="num">250</td><td class="num">1,000</td><td class="num">200</td></tr>
+              <tr><td>Elite Villa</td><td class="num">1</td><td class="num">0</td><td class="num">1,000</td><td class="num">4,000</td><td class="num">400</td></tr>
+              <tr><td>Prestige Villa</td><td class="num">2</td><td class="num">0–1</td><td class="num">5,000</td><td class="num">20,000</td><td class="num">600</td></tr>
+              <tr><td>Luxury Villa</td><td class="num">4</td><td class="num">0–3</td><td class="num">10,000</td><td class="num">40,000</td><td class="num">1,000</td></tr>
+              <tr><td>Summit Villa</td><td class="num">10</td><td class="num">0–9</td><td class="num">15,000</td><td class="num">60,000</td><td class="num">1,500</td></tr>
+              <tr><td>Iconic Villa</td><td class="num">10</td><td class="num">0–9</td><td class="num">30,000</td><td class="num">120,000</td><td class="num">2,000</td></tr>
+              <tr><td>Urban Heights</td><td class="num">10</td><td class="num">0–10</td><td class="num">60,000</td><td class="num">240,000</td><td class="num">5,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="font-family:var(--font-display);font-size:var(--text-base);font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--color-text);margin:var(--space-8) 0 var(--space-3);">Car Parts &amp; Advance Drawings</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Rank</th><th>Stars</th><th>Parts Total (per part)</th><th>All 4 Parts</th><th>Advance Drawings</th></tr></thead>
+            <tbody>
+              <tr><td style="color:var(--color-text-muted);font-weight:700;">A</td><td>0</td><td class="num">10</td><td class="num">40</td><td class="num">4</td></tr>
+              <tr><td style="color:var(--color-text-muted);font-weight:700;">B</td><td>0</td><td class="num">70</td><td class="num">280</td><td class="num">20</td></tr>
+              <tr><td style="color:var(--color-text-muted);font-weight:700;">B</td><td>★</td><td class="num">220</td><td class="num">880</td><td class="num">80</td></tr>
+              <tr><td style="color:var(--color-text-muted);font-weight:700;">C</td><td>0</td><td class="num">780</td><td class="num">3,120</td><td class="num">200</td></tr>
+              <tr><td style="color:var(--color-text-muted);font-weight:700;">C</td><td>★</td><td class="num">960</td><td class="num">3,840</td><td class="num">500</td></tr>
+              <tr><td style="color:var(--color-text-muted);font-weight:700;">C</td><td>★★</td><td class="num">1,140</td><td class="num">4,560</td><td class="num">1,000</td></tr>
+              <tr><td style="color:var(--color-text-muted);font-weight:700;">D</td><td>0–★★★</td><td class="num">2,300–3,800</td><td class="num">9,200–15,200</td><td class="num">1,200–2,000</td></tr>
+              <tr><td style="color:var(--color-text-muted);font-weight:700;">E</td><td>0–★★★★★</td><td class="num">5,800–9,550</td><td class="num">23,200–38,200</td><td class="num">2,300–4,000</td></tr>
+              <tr><td style="color:var(--color-primary);font-weight:700;">S</td><td>0–★★★★★</td><td class="num">10,300–14,500</td><td class="num">41,200–58,000</td><td class="num">4,000–8,000</td></tr>
+              <tr><td style="color:var(--color-warning);font-weight:700;">SS</td><td>0–★★★★★</td><td class="num">16,500–33,000</td><td class="num">66,000–132,000</td><td class="num">8,000–20,000</td></tr>
+              <tr><td style="color:var(--color-error);font-weight:700;">SSS</td><td>0–★★★★</td><td class="num">39,500–90,000</td><td class="num">158,000–360,000</td><td class="num">20,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===================== ABROAD SHOP ===================== -->
+      <section id="abroad" class="page-section">
+        <div class="section-header">
+          <h2 class="section-title"><span>Abroad Shop</span> — Optimizer</h2>
+          <p class="section-desc">Enter your available Abroad Coins and choose a spending goal. The optimizer ranks every item and shows exactly what you can buy in order, how much you spend, and what's left over.</p>
+        </div>
+
+        <div class="calc-section" style="margin-bottom: var(--space-6);">
+          <div class="calc-row" style="flex-wrap:wrap; gap: var(--space-4);">
+            <div style="display:flex;align-items:center;gap:var(--space-3);">
+              <label class="calc-label" for="abroadCoins" style="white-space:nowrap;">Available Abroad Coins</label>
+              <input type="number" class="calc-input" id="abroadCoins" value="193300" style="width:180px;" />
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);">
+              <label class="calc-label" for="abroadGoal" style="white-space:nowrap;">Spend Goal</label>
+              <select class="filter-select" id="abroadGoal">
+                <option value="priority">Best Priority First</option>
+                <option value="efficiency">Most Qty per Coin</option>
+                <option value="cheapest">Cheapest First</option>
+              </select>
+            </div>
+            <button class="btn-primary" id="calcAbroadBtn">Optimize</button>
+          </div>
+        </div>
+
+        <div id="abroadResult"></div>
+      </section>
+
+    </div><!-- /.container -->
   </main>
 
   <footer>
     <div class="container">
-      <p>Data compiled from community spreadsheets. Original data credit: <strong>@SrCuentaOficial</strong> · Server 717 · Compiled by Larry (4/27/26).</p>
-      <p style="margin-top: var(--space-2);">This is a community reference tool — not affiliated with the game developer.</p>
+      <p>Data compiled from community spreadsheets. Original credit: <strong>@SrCuentaOficial</strong> · Server 717 · Compiled by Larry (4/27/26). This is a fan-made reference tool.</p>
     </div>
   </footer>
 
